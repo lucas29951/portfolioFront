@@ -19,6 +19,10 @@ import { ListaPersonaComponent } from './persona/lista-persona.component';
 import { NuevaPersonaComponent } from './persona/nueva-persona.component';
 import { EditarPersonaComponent } from './persona/editar-persona.component';
 import { BorrarPersonaComponent } from './persona/borrar-persona.component';
+import { ListaProyectoComponent } from './proyecto/lista-proyecto.component';
+import { NuevoProyectoComponent } from './proyecto/nuevo-proyecto.component';
+import { EditarProyectoComponent } from './proyecto/editar-proyecto.component';
+import { BorrarProyectoComponent } from './proyecto/borrar-proyecto.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { BorrarPersonaComponent } from './persona/borrar-persona.component';
     ListaPersonaComponent,
     NuevaPersonaComponent,
     EditarPersonaComponent,
-    BorrarPersonaComponent
+    BorrarPersonaComponent,
+    ListaProyectoComponent,
+    NuevoProyectoComponent,
+    EditarProyectoComponent,
+    BorrarProyectoComponent
   ],
   imports: [
     BrowserModule,
