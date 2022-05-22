@@ -11,6 +11,10 @@ import { ListaEstudioComponent } from './estudio/lista-estudio.component';
 import { NuevoEstudioComponent } from './estudio/nuevo-estudio.component';
 import { EditarEstudioComponent } from './estudio/editar-estudio.component';
 import { BorrarEstudioComponent } from './estudio/borrar-estudio.component';
+import { ListaExperienciaComponent } from './experiencia/lista-experiencia.component';
+import { NuevaExperienciaComponent } from './experiencia/nueva-experiencia.component';
+import { EditarExperienciaComponent } from './experiencia/editar-experiencia.component';
+import { BorrarExperienciaComponent } from './experiencia/borrar-experiencia.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { BorrarEstudioComponent } from './estudio/borrar-estudio.component';
     ListaEstudioComponent,
     NuevoEstudioComponent,
     EditarEstudioComponent,
-    BorrarEstudioComponent
+    BorrarEstudioComponent,
+    ListaExperienciaComponent,
+    NuevaExperienciaComponent,
+    EditarExperienciaComponent,
+    BorrarExperienciaComponent
   ],
   imports: [
     BrowserModule,
