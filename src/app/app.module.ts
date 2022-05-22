@@ -15,6 +15,10 @@ import { ListaExperienciaComponent } from './experiencia/lista-experiencia.compo
 import { NuevaExperienciaComponent } from './experiencia/nueva-experiencia.component';
 import { EditarExperienciaComponent } from './experiencia/editar-experiencia.component';
 import { BorrarExperienciaComponent } from './experiencia/borrar-experiencia.component';
+import { ListaPersonaComponent } from './persona/lista-persona.component';
+import { NuevaPersonaComponent } from './persona/nueva-persona.component';
+import { EditarPersonaComponent } from './persona/editar-persona.component';
+import { BorrarPersonaComponent } from './persona/borrar-persona.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { BorrarExperienciaComponent } from './experiencia/borrar-experiencia.com
     ListaExperienciaComponent,
     NuevaExperienciaComponent,
     EditarExperienciaComponent,
-    BorrarExperienciaComponent
+    BorrarExperienciaComponent,
+    ListaPersonaComponent,
+    NuevaPersonaComponent,
+    EditarPersonaComponent,
+    BorrarPersonaComponent
   ],
   imports: [
     BrowserModule,
