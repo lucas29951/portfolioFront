@@ -30,6 +30,13 @@ import { EditarTecnologiaComponent } from './tecnologia/editar-tecnologia.compon
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
+import { DetalleContactoComponent } from './contacto/detalle-contacto.component';
+import { DetalleEstudioComponent } from './estudio/detalle-estudio.component';
+import { DetalleExperienciaComponent } from './experiencia/detalle-experiencia.component';
+import { DetallePersonaComponent } from './persona/detalle-persona.component';
+import { DetalleProyectoComponent } from './proyecto/detalle-proyecto.component';
+import { DetalleTecnologiaComponent } from './tecnologia/detalle-tecnologia.component';
+import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
 
 
 @NgModule({
@@ -56,6 +63,13 @@ import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
     ListaUsuarioComponent,
     NuevoUsuarioComponent,
     EditarUsuarioComponent,
+    DetalleContactoComponent,
+    DetalleEstudioComponent,
+    DetalleExperienciaComponent,
+    DetallePersonaComponent,
+    DetalleProyectoComponent,
+    DetalleTecnologiaComponent,
+    DetalleUsuarioComponent,
   ],
   imports: [
     BrowserModule,
