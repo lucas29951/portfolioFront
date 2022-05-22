@@ -23,6 +23,10 @@ import { ListaProyectoComponent } from './proyecto/lista-proyecto.component';
 import { NuevoProyectoComponent } from './proyecto/nuevo-proyecto.component';
 import { EditarProyectoComponent } from './proyecto/editar-proyecto.component';
 import { BorrarProyectoComponent } from './proyecto/borrar-proyecto.component';
+import { ListaTecnologiaComponent } from './tecnologia/lista-tecnologia.component';
+import { NuevaTecnologiaComponent } from './tecnologia/nueva-tecnologia.component';
+import { EditarTecnologiaComponent } from './tecnologia/editar-tecnologia.component';
+import { BorrarTecnologiaComponent } from './tecnologia/borrar-tecnologia.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,11 @@ import { BorrarProyectoComponent } from './proyecto/borrar-proyecto.component';
     ListaProyectoComponent,
     NuevoProyectoComponent,
     EditarProyectoComponent,
-    BorrarProyectoComponent
+    BorrarProyectoComponent,
+    ListaTecnologiaComponent,
+    NuevaTecnologiaComponent,
+    EditarTecnologiaComponent,
+    BorrarTecnologiaComponent
   ],
   imports: [
     BrowserModule,
