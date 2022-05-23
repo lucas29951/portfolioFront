@@ -1,1 +1,23 @@
-<p>lista-experiencia works!</p>
+<article>
+
+    <h2>Experiencia</h2>
+
+<div class="main-container">
+<table>
+    <thead>
+        <tr>
+            <th>PUESTO</th>
+            <th>EMPRESA</th>
+            <th>FECHA</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let experiencia of experiencias">
+            <td>{{experiencia.nombre_puesto}}</td>
+            <td>{{experiencia.lugar}}</td>
+            <td>{{experiencia.fecha_inicio}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</article>

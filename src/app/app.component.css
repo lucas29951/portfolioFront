@@ -1,9 +1,9 @@
 
 body {
-    background: #F3F3F3;
+    background: #DDD;
 }
 
-.ficha-top {
+.ficha-top, .ficha-bottom {
     background-image: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
     background-image: linear-gradient(90deg,#4a5e83,#3c2446);
     color: #fff;
@@ -43,7 +43,7 @@ body {
 
 .menu {
     /*background: #dc7a23;*/
-    margin-left: 29%;
+    margin-left: 27%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -62,4 +62,15 @@ body {
     /*background: #ff912f;*/
     background: rgba(136, 83, 160, 0.3);
     border-radius: 8px;
+}
+
+.banner {
+    color: #fff;
+    display: flex;
+    height: 280px;
+    padding: 8px 0;
+}
+
+.banner img {
+    border-radius: 10px;
 }
