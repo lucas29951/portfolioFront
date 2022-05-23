@@ -20,7 +20,7 @@ export class DetallePersonaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    this.personaService.buscar(id).subscribe(
+    this.personaService.buscar(1).subscribe(
       data => {
         this.persona = data;
       },

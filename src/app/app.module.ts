@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 import { ListaContactoComponent } from './contacto/lista-contacto.component';
 import { NuevoContactoComponent } from './contacto/nuevo-contacto.component';
 import { EditarContactoComponent } from './contacto/editar-contacto.component';
@@ -30,6 +34,7 @@ import { EditarTecnologiaComponent } from './tecnologia/editar-tecnologia.compon
 import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
+
 import { DetalleContactoComponent } from './contacto/detalle-contacto.component';
 import { DetalleEstudioComponent } from './estudio/detalle-estudio.component';
 import { DetalleExperienciaComponent } from './experiencia/detalle-experiencia.component';
@@ -73,7 +78,9 @@ import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

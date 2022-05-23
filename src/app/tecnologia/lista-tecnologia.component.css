@@ -1,0 +1,39 @@
+#skill {
+    width: 500px;
+    padding: 20px 50px;
+}
+
+.skill-container {
+    width: 500px;
+    height: 50px;
+    background-color: #ddd;
+    margin: 10px 0;
+    display: inline-block;
+    position: relative;
+    border-radius: 13px;
+}
+
+.skill-container p {
+    line-height: 22px;
+    position: absolute;
+    color: #fff;
+    font-family: cursive;
+    font-size: 15px;
+}
+
+.skill-container p:nth-child(2){
+    width: 120px;
+    padding-left: 20px;
+}
+
+.skill-container p:nth-child(3){
+    right: 10px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.skill-graph {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    border-radius: 13px;
+}

@@ -1,0 +1,28 @@
+.about {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000;
+}
+
+.about .profile {
+    float: left;
+    text-align: center;
+    margin: 10px 15px;
+    padding: 0 25px;
+    color: #000;
+}
+
+.about .profile img {
+    border-radius: 50%;
+}
+
+article {
+    padding: 20px;
+}
+
+article:nth-last-child(1) {
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-bottom: none;
+}
