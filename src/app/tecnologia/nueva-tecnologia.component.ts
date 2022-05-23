@@ -13,6 +13,7 @@ export class NuevaTecnologiaComponent implements OnInit {
 
   id: number = 0;
   nombre: string = '';
+  nivel: number = 0;
   pers: Persona = new Persona(1,'','','','','');
 
   constructor(private tecnologiaService: TecnologiaService, private router: Router) { }
@@ -21,7 +22,7 @@ export class NuevaTecnologiaComponent implements OnInit {
   }
 
   onCreate(): void {
-    const tecnologia = new Tecnologia(this.id,this.nombre,this.pers);
+    const tecnologia = new Tecnologia(this.id,this.nombre,this.nivel,this.pers);
     this.tecnologiaService.crear(tecnologia).subscribe(
       data => {
         alert('Tecnologia agregada');
