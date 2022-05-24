@@ -40,4 +40,5 @@ export class ListaTecnologiaComponent implements OnInit {
       }
     );
   }
+
 }

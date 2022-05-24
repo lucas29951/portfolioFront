@@ -1,6 +1,6 @@
 <article>
 
-    <h2>Experiencia</h2>
+    <h2>Experiencia <button class="btn btn-success" routerLink="/add-exp"><i class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
 <div class="main-container">
 <table>
@@ -9,6 +9,7 @@
             <th>PUESTO</th>
             <th>EMPRESA</th>
             <th>FECHA</th>
+            <th>OPCIONES</th>
         </tr>
     </thead>
     <tbody>
@@ -16,6 +17,11 @@
             <td>{{experiencia.nombre_puesto}}</td>
             <td>{{experiencia.lugar}}</td>
             <td>{{experiencia.fecha_inicio}}</td>
+            <td>
+                <button class="btn btn-primary" routerLink="/exp/{{experiencia.idExp}}"><i class="fa-solid fa-eye"></i>  Ver</button>
+                <button class="btn btn-warning" routerLink="/edit-exp/{{experiencia.idExp}}"><i class="fa-solid fa-pen-to-square"></i>  Editar</button>
+                <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>  Borrar</button>
+            </td>
         </tr>
     </tbody>
 </table>

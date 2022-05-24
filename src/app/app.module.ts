@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { CookieService } from 'ngx-cookie-service';
+
 import { ListaContactoComponent } from './contacto/lista-contacto.component';
 import { NuevoContactoComponent } from './contacto/nuevo-contacto.component';
 import { EditarContactoComponent } from './contacto/editar-contacto.component';
@@ -42,6 +44,7 @@ import { DetallePersonaComponent } from './persona/detalle-persona.component';
 import { DetalleProyectoComponent } from './proyecto/detalle-proyecto.component';
 import { DetalleTecnologiaComponent } from './tecnologia/detalle-tecnologia.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -75,6 +78,7 @@ import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
     DetalleProyectoComponent,
     DetalleTecnologiaComponent,
     DetalleUsuarioComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +86,7 @@ import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

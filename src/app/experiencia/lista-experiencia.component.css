@@ -21,6 +21,10 @@ th, td {
     padding: 20px;
 }
 
+td .btn {
+    margin: 5px;
+}
+
 thead {
     background-color: #4a5e86;
     border-bottom: 5px solid #2a3d64;
