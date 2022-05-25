@@ -1,13 +1,15 @@
-article {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #000;
+.col {
+    background: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+}
+
+h2 {
+    color: #ddd;
 }
 
 .main-container {
     margin:20px auto;
-    width: 80%;
+    width: 90%;
 }
 
 table {
@@ -38,4 +40,5 @@ tr:nth-child(even) {
 tr:hover td{
     background-color: #79879477;
     color: #fff;
+    cursor: pointer;
 }

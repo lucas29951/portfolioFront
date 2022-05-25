@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
 import { EstudioService } from '../service/estudio.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-lista-estudio',
@@ -11,11 +12,26 @@ import { EstudioService } from '../service/estudio.service';
 export class ListaEstudioComponent implements OnInit {
 
   estudios: Estudio[] = [];
+  uLogged: string = '';
 
-  constructor(private estudioService: EstudioService, private router: Router) { }
+  constructor(
+    private estudioService: EstudioService, 
+    private router: Router,
+    private loginService: LoginService
+    ) { }
 
   ngOnInit(): void {
+    this.uLogged = this.loginService.getUserLogged();
     this.cargarEstudios();
+  }
+
+  salir():void {
+    this.loginService.deleteToken();
+    this.uLogged = '';
+  }
+
+  loggearse():void {
+    this.router.navigate(['/login']);
   }
 
   cargarEstudios(): void {

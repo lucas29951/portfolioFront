@@ -1,0 +1,44 @@
+.col {
+    background: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+}
+
+h2 {
+    color: #ddd;
+}
+
+.main-container {
+    margin:20px auto;
+    width: 90%;
+}
+
+table {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 20px;
+}
+
+td .btn {
+    margin: 5px;
+}
+
+thead {
+    background-color: #4a5e86;
+    border-bottom: 5px solid #2a3d64;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td{
+    background-color: #79879477;
+    color: #fff;
+    cursor: pointer;
+}

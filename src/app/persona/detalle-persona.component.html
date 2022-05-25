@@ -1,13 +1,28 @@
-
-<div class="about" *ngIf="persona">
-    <div class="profile">
-        <img src="{{persona.foto}}" width="90" alt=""/>
-        <h4>{{persona.nombre}} {{persona.apellido}}</h4>
+<div class="container">
+    <div class="row mb-2" *ngIf="persona">
+        <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <strong class="d-inline-block mb-2 text-info">{{persona.profesion}}</strong>
+                    <h3 class="mb-0">{{persona.nombre}} {{ persona.apellido }}</h3>
+                    <p class="card-text mb-auto">{{persona.resumen}}</p>
+                    <table>
+                        <tr>
+                            <td><a href="https://github.com/lucas29951"><i class="fa-brands fa-github fa-2x"></i></a></td>
+                            <td><a href="https://ar.linkedin.com/"><i class="fa-brands fa-linkedin-in fa-2x"></i></a></td>
+                            <td><a href="https://www.instagram.com/lucas29951/"><i class="fa-brands fa-instagram fa-2x"></i></a></td>
+                            <td><a href="https://twitter.com/Lucas290195"><i class="fa-brands fa-twitter fa-2x"></i></a></td>
+                            <td><a href="https://www.facebook.com/lukas.rodriguez.127/"><i class="fa-brands fa-facebook-f fa-2x"></i></a></td>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{{persona.foto}}" alt="foto" width="200">
+                    
+                </div>
+                <button class="btn btn-warning" routerLink="/edit-person" *ngIf="uLogged!=''"><i class="fa-solid fa-pen-to-square"></i>  Editar</button>
+            </div>
+        </div>
     </div>
-    <article>
-        <h2 class="titulo">¿Quien soy?</h2>
-        <p>
-            {{persona.resumen}}
-        </p>
-    </article>
 </div>

@@ -1,1 +1,40 @@
-<p>lista-estudio works!</p>
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h2>Estudios <button class="btn btn-success" routerLink="/add-exp" *ngIf="uLogged!=''"><i
+                                class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
+
+                    <div class="main-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>TITULO</th>
+                                    <th>INSTITUCION</th>
+                                    <th>PERIODO</th>
+                                    <th *ngIf="uLogged!=''">OPCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let estudio of estudios">
+                                    <td>{{estudio.titulo}}</td>
+                                    <td>{{estudio.nombre_institucion}}</td>
+                                    <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
+                                    <td *ngIf="uLogged!=''">
+                                        <button class="btn btn-primary" routerLink="/exp/{{estudio.idEstudio}}"><i
+                                                class="fa-solid fa-eye"></i> Ver</button>
+                                        <button class="btn btn-warning" routerLink="/edit-exp/{{estudio.idEstudio}}"><i
+                                                class="fa-solid fa-pen-to-square"></i> Editar</button>
+                                        <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
+                                            Borrar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

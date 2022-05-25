@@ -1,37 +1,55 @@
-<article>
-<h2>Proyectos  <button class="btn btn-success" routerLink="/add-project"><i class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-md-12">
+      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <!---->
+          <h2>
+            Proyectos 
+            <button class="btn btn-success" routerLink="/add-project" *ngIf="uLogged!=''">
+              <i class="fa-solid fa-circle-plus"></i> 
+              Agregar
+            </button>
+            <button class="btn btn-warning" routerLink="/edit-project" *ngIf="uLogged!=''">
+              <i class="fa-solid fa-pen-to-square"></i> 
+              Editar Proyectos
+            </button>
+            <button class="btn btn-secondary" routerLink="/showProjects" *ngIf="uLogged==''">
+              Ver Lista
+            </button>
+          </h2>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="https://i.gyazo.com/2b1bd638323d83384e38c43acf0e0150.png" class="d-block w-100" alt="logoAzul">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Item Inicial</h5>
-        <p>Este es el principio del carousel.</p>
-      </div>
-    </div>
-    <div class="carousel-item" *ngFor="let proyecto of proyectos">
-      <table>
-        <tr>
-          <td><button class="btn-primary" routerLink="/project/{{proyecto.idProyecto}}"><i class="fa-solid fa-eye"></i>  Ver</button></td>
-          <td><button class="btn-warning" routerLink="/edit-project/{{proyecto.idProyecto}}"><i class="fa-solid fa-pen-to-square"></i>  Editar</button></td>
-          <td><button class="btn-danger"><i class="fa-solid fa-trash-can"></i>  Borrar</button></td> 
-        </tr>
-      </table>
-      <img src="https://i.gyazo.com/2fcf1f93e5739cd0a414d589f9f3f6af.png" class="d-block w-100" alt="proyecto">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>{{ proyecto.nombre_proyecto }}</h5>
-        <p>{{ proyecto.descripcion }}</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="https://i.gyazo.com/d71e1c62e8c19ccc653b2c11e75197ec.png" class="d-block w-100" alt="logoRojo">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Item Final</h5>
-        <p>Este es el item final del carousel.</p>
+          <div id="carouselProjects" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="https://i.gyazo.com/2b1bd638323d83384e38c43acf0e0150.png" class="d-block w-100"
+                  alt="logoAzul">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Item Inicial</h5>
+                  <p>Este es el principio del carousel.</p>
+                </div>
+              </div>
+              <div class="carousel-item" *ngFor="let proyecto of proyectos">
+                <img src="https://i.gyazo.com/2fcf1f93e5739cd0a414d589f9f3f6af.png" class="d-block w-100"
+                  alt="proyecto">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ proyecto.nombre_proyecto }}</h5>
+                  <p>{{ proyecto.descripcion }}</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="https://i.gyazo.com/d71e1c62e8c19ccc653b2c11e75197ec.png" class="d-block w-100"
+                  alt="logoRojo">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Item Final</h5>
+                  <p>Este es el item final del carousel.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </div>
       </div>
     </div>
   </div>
 </div>
-</article>
-<br><br>

@@ -1,27 +1,38 @@
-<article>
-    <h2>Habilidades  <button class="btn btn-success" routerLink="/add-skill"><i class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
+<div class="container">
+    <div class="row mb-2">
+        <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h2>Habilidades <button class="btn btn-success" routerLink="/add-skill" *ngIf="uLogged!=''"><i
+                                class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
-    <div id="skill">
-        <table *ngFor="let tecnologia of tecnologias">
-            <tr>
-                <td>
-                    <div class="skill-container">
-                        <div class="skill-graph" style="width:75%;background:#4a5e86"></div>
-                        <p>{{tecnologia.nombre_tecno}}</p>
-                        <p>{{tecnologia.nivel}}%</p>
+                    <div id="skill">
+                        <table *ngFor="let tecnologia of tecnologias">
+                            <tr>
+                                <td>
+                                    <div class="skill-container">
+                                        <div class="skill-graph" style="width:75%;background:#897cc0"></div>
+                                        <p>{{tecnologia.nombre_tecno}}</p>
+                                        <p>{{tecnologia.nivel}}%</p>
 
+                                    </div>
+                                </td>
+                                <td *ngIf="uLogged!=''">
+                                    <button class="btn btn-primary" routerLink="/skill/{{tecnologia.idTec}}"><i
+                                            class="fa-solid fa-eye"></i></button>
+                                </td>
+                                <td *ngIf="uLogged!=''">
+                                    <button class="btn btn-warning" routerLink="/edit-skill/{{tecnologia.idTec}}"><i
+                                            class="fa-solid fa-pen-to-square"></i></button>
+                                </td>
+                                <td *ngIf="uLogged!=''">
+                                    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
-                </td>
-                <td>
-                    <button class="btn btn-primary" routerLink="/skill/{{tecnologia.idTec}}"><i class="fa-solid fa-eye"></i>  Ver</button>
-                </td>
-                <td>
-                    <button class="btn btn-warning" routerLink="/edit-skill/{{tecnologia.idTec}}"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
-                </td>
-                <td>
-                    <button class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>  Borrar</button>
-                </td>
-            </tr>
-        </table>
+                </div>
+            </div>
+        </div>
     </div>
-</article>
+</div>

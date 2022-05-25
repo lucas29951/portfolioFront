@@ -1,34 +1,86 @@
 <div class="ficha-top">
     <div class="name">
-        <img src="https://i.gyazo.com/1010a883a784d04f571f7889f3200904.png" width="282" alt="perfil"/>
+        <img src="https://i.gyazo.com/1010a883a784d04f571f7889f3200904.png" width="282" alt="perfil" />
         <div>Argentina Programa<span>#YoProgramo</span></div>
     </div>
     <div class="menu">
-        <a href="">¿Quien soy?</a>
-        <a href="">Habilidades</a>
-        <a href="">Experiencia</a>
-        <a href="">Proyectos</a>
+        <a href="#about">¿Quien soy?</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#exps">Experiencia</a>
+        <a href="#projects">Proyectos</a>
         <a href="">Estudios</a>
         <a href="">Contacto</a>
-        <a href="/signin">Login</a>
-        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="uLogged==''">
+            Sign in
+        </button>
+        <button type="submit" class="btn btn-outline-light" (click)="salir()" *ngIf="uLogged!=''">
+            Sign out
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel"><i class="fa-solid fa-right-to-bracket"></i>
+                            Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-3">
+                                <label for="username" class="col-form-label"><i class="fa-solid fa-user"></i>
+                                    Username:</label>
+                                <input type="text" class="form-control" id="username" [(ngModel)]="username">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="col-form-label"><i class="fa-solid fa-lock"></i>
+                                    Password:</label>
+                                <input type="password" class="form-control" id="password" [(ngModel)]="password">
+                            </div>
+                            {{loginError}}
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" (click)="login()" data-bs-dismiss="modal">Enter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
-
+<!--
+<h2 *ngIf="uLogged==''">No estas loggeado.</h2>
+<h2 *ngIf="uLogged!=''">Felicitaciones! Estas loggeado.</h2>
+-->
 <div class="banner">
-    <img src="https://i.gyazo.com/d17694ad31878e0c01152372eade80dc.jpg" width="100%" alt="banner"/>
+    <img src="https://i.gyazo.com/d17694ad31878e0c01152372eade80dc.jpg" width="100%" alt="banner" />
 </div>
 
+<section id="about">
 <app-detalle-persona></app-detalle-persona>
+</section>
 
+<section id="skills">
 <app-lista-tecnologia></app-lista-tecnologia>
+</section>
 
+<section id="exps">
 <app-lista-experiencia></app-lista-experiencia>
+</section>
 
+<section id="projects">
 <app-lista-proyecto></app-lista-proyecto>
-<!--
+</section>
+
+
 <app-lista-estudio></app-lista-estudio>
--->
+
 <div class="ficha-bottom">
-    
+
 </div>

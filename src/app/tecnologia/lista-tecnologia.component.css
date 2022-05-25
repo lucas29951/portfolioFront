@@ -1,8 +1,7 @@
-article {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #000;
+.col {
+    background: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    color: #ddd;
 }
 
 #skill {
@@ -11,7 +10,7 @@ article {
 }
 
 .skill-container {
-    width: 500px;
+    width: 700px;
     height: 50px;
     background-color: #ddd;
     margin: 10px 0;
@@ -47,11 +46,10 @@ article {
 }
 
 table td {
-    padding: 5px 5px;
+    padding: 5px 10px;
 }
 
 .btn {
-    display: felx;
     justify-content: center;
     margin: 5px auto;
 }
