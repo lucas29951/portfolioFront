@@ -1,7 +1,8 @@
+import { RouterModule, Routes } from '@angular/router';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -44,8 +45,10 @@ import { DetallePersonaComponent } from './persona/detalle-persona.component';
 import { DetalleProyectoComponent } from './proyecto/detalle-proyecto.component';
 import { DetalleTecnologiaComponent } from './tecnologia/detalle-tecnologia.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
-import { LoginComponent } from './login/login.component';
 
+const routes: Routes = [
+  { path: 'usuarios', component: ListaUsuarioComponent }
+];
 
 @NgModule({
   declarations: [
@@ -77,14 +80,13 @@ import { LoginComponent } from './login/login.component';
     DetallePersonaComponent,
     DetalleProyectoComponent,
     DetalleTecnologiaComponent,
-    DetalleUsuarioComponent,
-    LoginComponent
+    DetalleUsuarioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

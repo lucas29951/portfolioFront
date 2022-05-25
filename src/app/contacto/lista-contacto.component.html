@@ -1,1 +1,19 @@
-<p>lista-contacto works!</p>
+
+
+<div class="row">
+    <div class="col" *ngFor="let contacto of contactos">
+        <h4>{{contacto.nombre_info}}</h4>
+        <p>{{contacto.info}}</p>
+    </div>
+    <div class="col">
+        <table>
+            <tr>
+                <td><a href="https://github.com/lucas29951"><i class="fa-brands fa-github fa-2x"></i></a></td>
+                <td><a href="https://ar.linkedin.com/"><i class="fa-brands fa-linkedin-in fa-2x"></i></a></td>
+                <td><a href="https://www.instagram.com/lucas29951/"><i class="fa-brands fa-instagram fa-2x"></i></a></td>
+                <td><a href="https://twitter.com/Lucas290195"><i class="fa-brands fa-twitter fa-2x"></i></a></td>
+                <td><a href="https://www.facebook.com/lukas.rodriguez.127/"><i class="fa-brands fa-facebook-f fa-2x"></i></a></td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  usuarioURL = '/api/user/';
+  usuarioURL = 'http://localhost:8080/api/user/';
 
   constructor(private cookies: CookieService, private httpClient: HttpClient) { }
 

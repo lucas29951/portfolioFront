@@ -1,4 +1,4 @@
-<div class="ficha-top">
+<div class="ficha-top" id="home">
     <div class="name">
         <img src="https://i.gyazo.com/1010a883a784d04f571f7889f3200904.png" width="282" alt="perfil" />
         <div>Argentina Programa<span>#YoProgramo</span></div>
@@ -8,8 +8,8 @@
         <a href="#skills">Habilidades</a>
         <a href="#exps">Experiencia</a>
         <a href="#projects">Proyectos</a>
-        <a href="">Estudios</a>
-        <a href="">Contacto</a>
+        <a href="#estudios">Estudios</a>
+        <a href="#contacto">Contacto</a>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="uLogged==''">
             Sign in
@@ -59,8 +59,10 @@
 <h2 *ngIf="uLogged!=''">Felicitaciones! Estas loggeado.</h2>
 -->
 <div class="banner">
-    <img src="https://i.gyazo.com/d17694ad31878e0c01152372eade80dc.jpg" width="100%" alt="banner" />
+    <img src="https://i.gyazo.com/3f23dfe22145e88bbe481f86dc6e8d6c.png" width="100%" alt="banner" />
 </div>
+
+<router-outlet></router-outlet>
 
 <section id="about">
 <app-detalle-persona></app-detalle-persona>
@@ -78,9 +80,12 @@
 <app-lista-proyecto></app-lista-proyecto>
 </section>
 
-
+<section id="estudios">
 <app-lista-estudio></app-lista-estudio>
+</section>
 
+<section id="contacto">
 <div class="ficha-bottom">
-
+    <app-lista-contacto></app-lista-contacto>
 </div>
+</section>
