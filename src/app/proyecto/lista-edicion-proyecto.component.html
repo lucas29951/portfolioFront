@@ -17,6 +17,7 @@
                     <th>FECHA DE REALIZACION</th>
                     <th>DESCRIPCION</th>
                     <th>ENLACE AL PROYECTO</th>
+                    <th>OPCIONES</th>
                 </tr>
             </thead>
             <tbody>
@@ -25,6 +26,13 @@
                     <td>{{proyecto.fecha_realizacion}}</td>
                     <td>{{proyecto.descripcion}}</td>
                     <td>{{proyecto.enlace_proyecto}}</td>
+                    <td *ngIf="uLogged!=''">
+                        <button class="btn btn-primary"><i class="fa-solid fa-eye"></i></button>
+                        <button class="btn btn-warning"><i class="fa-solid fa-pen-to-square"></i></button>
+                        <button class="btn btn-danger" (click)="borrar(proyecto.idProyecto)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>

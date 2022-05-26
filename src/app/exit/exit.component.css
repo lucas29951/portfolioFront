@@ -49,16 +49,11 @@
     padding: 15px;
 }
 
+.card-body {
+    background: rgb(235, 233, 233);
+}
+
 .btn {
     float: right;
     margin: 10px 15px;
 }
-
-.fa-lock {
-    color:#2e3f5f;
-}
-
-.fa-user {
-    color:#2e3f5f;
-}
-

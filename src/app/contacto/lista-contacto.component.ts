@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contacto } from '../models/contacto';
 import { ContactoService } from '../service/contacto.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-lista-contacto',
@@ -11,10 +12,16 @@ import { ContactoService } from '../service/contacto.service';
 export class ListaContactoComponent implements OnInit {
 
   contactos: Contacto[] = [];
+  uLogged: string = '';
 
-  constructor(private contactoService: ContactoService, private router: Router) { }
+  constructor(
+    private contactoService: ContactoService,
+    private router: Router,
+    private loginService: LoginService
+    ) { }
 
   ngOnInit(): void {
+    this.uLogged = this.loginService.getUserLogged();
     this.cargarContactos();
   }
 

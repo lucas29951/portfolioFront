@@ -5,6 +5,7 @@ export class Persona {
     profesion: string;
     resumen: string;
     foto: string;
+    
 
     constructor(id: number, nombre: string, apellido: string, profesion: string, resumen: string, foto: string){
         this.idPersona = id;

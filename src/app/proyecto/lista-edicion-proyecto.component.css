@@ -37,28 +37,43 @@
     margin-top: 5px;
 }
 
-.card {
-    margin: 0 auto;
-    width: 20rem;
-    background-image: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
-    background-image: linear-gradient(90deg,#4a5e83,#3c2446);
+h2 {
+    color: rgb(63, 63, 63);
 }
 
-.card-header {
-    color: #ddd;
-    padding: 15px;
+.container {
+    margin: 10px auto;
+    width: 90%;
 }
 
-.btn {
-    float: right;
-    margin: 10px 15px;
+table {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    border: 1px solid rgb(49, 48, 48);
 }
 
-.fa-lock {
-    color:#2e3f5f;
+th, td {
+    padding: 20px;
 }
 
-.fa-user {
-    color:#2e3f5f;
+td .btn {
+    margin: 5px;
 }
 
+thead {
+    background-color: #4a5e86;
+    border-bottom: 5px solid #2a3d64;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td{
+    background-color: #79879477;
+    color: #fff;
+    cursor: pointer;
+}

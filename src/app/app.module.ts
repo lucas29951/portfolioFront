@@ -50,12 +50,15 @@ import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { CarouselProyectoComponent } from './proyecto/carousel-proyecto.component';
+import { ExitComponent } from './exit/exit.component';
+import { ListaEdicionProyectoComponent } from './proyecto/lista-edicion-proyecto.component';
 
 const routes: Routes = [
   /* -----  Ruta de Inicio  ----- */
   { path: '', component: BodyComponent },
   /* -----  Ruta de Login  ----- */
   { path: 'log', component: LoginComponent },
+  { path: 'exit', component: ExitComponent },
   /* -----  Rutas de Agregacion de elementos  ----- */
   { path: 'add-contact', component: NuevoContactoComponent },
   { path: 'add-study', component: NuevoEstudioComponent },
@@ -82,6 +85,7 @@ const routes: Routes = [
   { path: 'view-user/:id', component: DetalleUsuarioComponent },
   /* -----  Rutas de Lista de elementos  ----- */
   { path: 'show-projects', component: ListaProyectoComponent },
+  { path: 'edit-project-list', component: ListaEdicionProyectoComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
@@ -120,7 +124,9 @@ const routes: Routes = [
     BodyComponent,
     FooterComponent,
     LoginComponent,
-    CarouselProyectoComponent
+    CarouselProyectoComponent,
+    ExitComponent,
+    ListaEdicionProyectoComponent
   ],
   imports: [
     BrowserModule,

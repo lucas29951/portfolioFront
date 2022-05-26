@@ -17,7 +17,7 @@
         <!-- <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="uLogged==''">
             Sign in
         </button> -->
-        <button type="submit" class="btn btn-outline-light" (click)="salir()" *ngIf="uLogged!=''">
+        <button type="submit" class="btn btn-outline-light" [routerLink]="['/exit']" *ngIf="uLogged!=''">
             Sign out
         </button>
 

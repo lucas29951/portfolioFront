@@ -5,7 +5,10 @@
         <a href="#home"><i class="fa-solid fa-house fa-2x"></i></a>
     </div>
     <div class="col" *ngFor="let contacto of contactos">
-        <h4>{{contacto.nombre_info}}</h4>
+        <h4>
+            {{contacto.nombre_info}}
+            <button class="btn btn-block" *ngIf="uLogged!=''" [routerLink]="['/modify-contact/{{contacto.idContacto}}']"><i class="fa-solid fa-pen-to-square"></i></button>
+        </h4>
         <p>{{contacto.info}}</p>
     </div>
     <div class="col">
