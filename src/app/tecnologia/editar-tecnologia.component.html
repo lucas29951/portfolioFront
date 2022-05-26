@@ -1,1 +1,19 @@
-<p>editar-tecnologia works!</p>
+<div class="container" *ngIf="tecnologia">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre de la Tecnologia:</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                    [(ngModel)]="tecnologia.nombre_tecno" required>
+                </div>
+                <div class="form-group">
+                    <label for="nivel">Nivel de conocimiento: (0 a 100)</label>
+                    <input type="text" class="form-control" id="nivel" name="nivel"
+                    [(ngModel)]="tecnologia.nivel" required>
+                </div>
+                <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
+            </form>
+        </div>
+    </div>
+</div>

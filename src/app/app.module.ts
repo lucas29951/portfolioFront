@@ -45,9 +45,44 @@ import { DetallePersonaComponent } from './persona/detalle-persona.component';
 import { DetalleProyectoComponent } from './proyecto/detalle-proyecto.component';
 import { DetalleTecnologiaComponent } from './tecnologia/detalle-tecnologia.component';
 import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
+import { HeaderComponent } from './header/header.component';
+import { BodyComponent } from './body/body.component';
+import { FooterComponent } from './footer/footer.component';
+import { LoginComponent } from './login/login.component';
+import { CarouselProyectoComponent } from './proyecto/carousel-proyecto.component';
 
 const routes: Routes = [
-  { path: 'usuarios', component: ListaUsuarioComponent }
+  /* -----  Ruta de Inicio  ----- */
+  { path: '', component: BodyComponent },
+  /* -----  Ruta de Login  ----- */
+  { path: 'log', component: LoginComponent },
+  /* -----  Rutas de Agregacion de elementos  ----- */
+  { path: 'add-contact', component: NuevoContactoComponent },
+  { path: 'add-study', component: NuevoEstudioComponent },
+  { path: 'add-exp', component: NuevaExperienciaComponent },
+  { path: 'add-person', component: NuevaPersonaComponent },
+  { path: 'add-project', component: NuevoProyectoComponent },
+  { path: 'add-tecno', component: NuevaTecnologiaComponent },
+  { path: 'add-user', component: NuevoUsuarioComponent },
+  /* -----  Rutas de Edicion de elementos  ----- */
+  { path: 'modify-contact/:id', component: EditarContactoComponent },
+  { path: 'modify-study/:id', component: EditarEstudioComponent },
+  { path: 'modify-exp/:id', component: EditarExperienciaComponent },
+  { path: 'modify-person/:id', component: EditarPersonaComponent },
+  { path: 'modify-project/:id', component: EditarProyectoComponent },
+  { path: 'modify-tecno/:id', component: EditarTecnologiaComponent },
+  { path: 'modify-user/:id', component: EditarUsuarioComponent },
+  /* -----  Rutas de Vista Detalle de elementos  ----- */
+  { path: 'view-contact/:id', component: DetalleContactoComponent },
+  { path: 'view-study/:id', component: DetalleEstudioComponent },
+  { path: 'view-exp/:id', component: DetalleExperienciaComponent },
+  { path: 'view-person/:id', component: DetallePersonaComponent },
+  { path: 'view-project/:id', component: DetalleProyectoComponent },
+  { path: 'view-tecno/:id', component: DetalleTecnologiaComponent },
+  { path: 'view-user/:id', component: DetalleUsuarioComponent },
+  /* -----  Rutas de Lista de elementos  ----- */
+  { path: 'show-projects', component: ListaProyectoComponent },
+  { path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -80,7 +115,12 @@ const routes: Routes = [
     DetallePersonaComponent,
     DetalleProyectoComponent,
     DetalleTecnologiaComponent,
-    DetalleUsuarioComponent
+    DetalleUsuarioComponent,
+    HeaderComponent,
+    BodyComponent,
+    FooterComponent,
+    LoginComponent,
+    CarouselProyectoComponent
   ],
   imports: [
     BrowserModule,
