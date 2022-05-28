@@ -6,23 +6,23 @@
 </div>
 
 <section id="about">
-    <app-detalle-persona></app-detalle-persona>
+    <app-detalle-persona [perso]="persona"></app-detalle-persona>
 </section>
 
 <section id="skills">
-    <app-lista-tecnologia></app-lista-tecnologia>
+    <app-lista-tecnologia [tecnos]="persona.tecnologias"></app-lista-tecnologia>
 </section>
 
 <section id="exps">
-    <app-lista-experiencia></app-lista-experiencia>
+    <app-lista-experiencia [exps]="persona.experiencias"></app-lista-experiencia>
 </section>
 
 <section id="projects">
-    <app-carousel-proyecto></app-carousel-proyecto>
+    <app-carousel-proyecto [pros]="persona.proyectos"></app-carousel-proyecto>
 </section>
 
 <section id="estudios">
-    <app-lista-estudio></app-lista-estudio>
+    <app-lista-estudio [estus]="persona.estudios"></app-lista-estudio>
 </section>
 
-<app-footer></app-footer>
+<app-footer [conts]="persona.contactos"></app-footer>

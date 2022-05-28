@@ -52,6 +52,7 @@ import { LoginComponent } from './login/login.component';
 import { CarouselProyectoComponent } from './proyecto/carousel-proyecto.component';
 import { ExitComponent } from './exit/exit.component';
 import { ListaEdicionProyectoComponent } from './proyecto/lista-edicion-proyecto.component';
+import { HeaderEmptyComponent } from './header/header-empty.component';
 
 const routes: Routes = [
   /* -----  Ruta de Inicio  ----- */
@@ -126,7 +127,8 @@ const routes: Routes = [
     LoginComponent,
     CarouselProyectoComponent,
     ExitComponent,
-    ListaEdicionProyectoComponent
+    ListaEdicionProyectoComponent,
+    HeaderEmptyComponent
   ],
   imports: [
     BrowserModule,

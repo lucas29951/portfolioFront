@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Contacto } from '../models/contacto';
+import { ContactoService } from '../service/contacto.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  @Input() conts: Contacto[] = [];
+
+  constructor(
+    private contactoService: ContactoService
+  ) { }
 
   ngOnInit(): void {
+    this.contactoService.listar().subscribe(
+      data => {
+        this.conts = data;
+      },
+      err => {
+        alert("Error! " + err.message);
+      }
+    );
   }
 
 }

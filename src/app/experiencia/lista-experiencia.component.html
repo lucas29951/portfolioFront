@@ -17,14 +17,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let experiencia of experiencias">
+                                <tr *ngFor="let experiencia of exps">
                                     <td>{{experiencia.nombre_puesto}}</td>
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <button class="btn btn-primary" ><i
+                                        <button class="btn btn-primary" routerLink="/view-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-eye"></i> Ver</button>
-                                        <button class="btn btn-warning" ><i
+                                        <button class="btn btn-warning" routerLink="/modify-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-pen-to-square"></i> Editar</button>
                                         <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i class="fa-solid fa-trash-can"></i>
                                             Borrar</button>

@@ -10,7 +10,7 @@ import { PersonaService } from '../service/persona.service';
 })
 export class EditarPersonaComponent implements OnInit {
 
-  persona: Persona = new Persona(0,'','','','','');
+  persona: Persona = new Persona(0,'','','','','',[],[],[],[],[]);
 
   constructor(
     private personaService: PersonaService,

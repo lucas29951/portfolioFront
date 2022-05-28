@@ -18,7 +18,7 @@ export class NuevaExperienciaComponent implements OnInit {
   inicio: string = '';
   fin: string = '';
   desc: string = '';
-  pers: Persona = new Persona(1,'','','','','');
+  pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
   constructor(private experienciaService: ExperienciaService, private router: Router) { }
 

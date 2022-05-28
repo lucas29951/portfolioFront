@@ -16,6 +16,11 @@ export class NuevaPersonaComponent implements OnInit {
   resumen: string = '';
   prof: string = '';
   foto: string = '';
+  cont: [] = [];
+  est: [] = [];
+  exp: [] = [];
+  pro: [] = [];
+  tec: [] = [];
 
   constructor(private personaService: PersonaService, private router: Router) { }
 
@@ -23,7 +28,19 @@ export class NuevaPersonaComponent implements OnInit {
   }
 
   onCreate(): void {
-    const persona = new Persona(this.id,this.nombre,this.apellido,this.prof,this.resumen,this.foto);
+    const persona = new Persona(
+      this.id,
+      this.nombre,
+      this.apellido,
+      this.prof,
+      this.resumen,
+      this.foto,
+      this.cont,
+      this.est,
+      this.exp,
+      this.pro,
+      this.tec
+      );
     this.personaService.crear(persona).subscribe(
       data => {
         alert('Persona creada');

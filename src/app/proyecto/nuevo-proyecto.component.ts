@@ -17,7 +17,7 @@ export class NuevoProyectoComponent implements OnInit {
   desc: string = '';
   enlace: string = '';
   imagen: string = '';
-  pers: Persona = new Persona(1,'','','','','');
+  pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
   constructor(private proyectoService: ProyectoService, private router: Router) { }
 

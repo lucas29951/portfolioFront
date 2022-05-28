@@ -14,7 +14,7 @@ export class NuevoContactoComponent implements OnInit {
   id: number = 0;
   nombre: string = '';
   info: string = '';
-  pers: Persona = new Persona(1,'','','','','');
+  pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
   constructor(private contactoService: ContactoService, private router: Router) { }
 

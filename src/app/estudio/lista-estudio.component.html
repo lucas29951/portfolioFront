@@ -17,14 +17,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let estudio of estudios">
+                                <tr *ngFor="let estudio of estus">
                                     <td>{{estudio.titulo}}</td>
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <button class="btn btn-primary" ><i
+                                        <button class="btn btn-primary" routerLink="/view-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-eye"></i></button>
-                                        <button class="btn btn-warning" ><i
+                                        <button class="btn btn-warning" routerLink="/modify-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
                                         <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i class="fa-solid fa-trash-can"></i></button>
                                     </td>

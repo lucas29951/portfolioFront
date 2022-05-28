@@ -11,7 +11,7 @@ import { ExperienciaService } from '../service/experiencia.service';
 })
 export class EditarExperienciaComponent implements OnInit {
 
-  experiencia: Experiencia = new Experiencia(0,'','','','','','',new Persona(1,'','','','',''));
+  experiencia: Experiencia = new Experiencia(0,'','','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
 
   constructor(
     private experienciaService: ExperienciaService,

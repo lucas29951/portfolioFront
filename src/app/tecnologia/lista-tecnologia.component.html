@@ -7,7 +7,7 @@
                                 class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
                     <div id="skill">
-                        <table *ngFor="let tecnologia of tecnologias">
+                        <table *ngFor="let tecnologia of tecnos">
                             <tr>
                                 <td>
                                     <div class="skill-container">
@@ -18,11 +18,11 @@
                                     </div>
                                 </td>
                                 <td *ngIf="uLogged!=''">
-                                    <button class="btn btn-primary" [routerLink]="['/view-tecno/{{tecnologia.idTec}}']"><i
+                                    <button class="btn btn-primary" routerLink="/view-tecno/{{tecnologia.idTec}}"><i
                                             class="fa-solid fa-eye"></i></button>
                                 </td>
                                 <td *ngIf="uLogged!=''">
-                                    <button class="btn btn-warning" [routerLink]="['/modify-tecno/{{tecnologia.idTec}}']"><i
+                                    <button class="btn btn-warning" routerLink="/modify-tecno/{{tecnologia.idTec}}"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </td>
                                 <td *ngIf="uLogged!=''">

@@ -11,7 +11,7 @@ import { TecnologiaService } from '../service/tecnologia.service';
 })
 export class DetalleTecnologiaComponent implements OnInit {
 
-  tecnologia: Tecnologia = new Tecnologia(0,'',0,new Persona(1,'','','','',''));
+  tecnologia: Tecnologia = new Tecnologia(0,'',0,new Persona(1,'','','','','',[],[],[],[],[]));
 
   constructor(
     private tecnologiaService: TecnologiaService,

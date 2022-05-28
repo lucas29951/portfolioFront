@@ -14,7 +14,7 @@ export class NuevaTecnologiaComponent implements OnInit {
   id: number = 0;
   nombre: string = '';
   nivel: number = 0;
-  pers: Persona = new Persona(1,'','','','','');
+  pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
   constructor(private tecnologiaService: TecnologiaService, private router: Router) { }
 

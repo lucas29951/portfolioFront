@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Persona } from '../models/persona';
+import { PersonaService } from '../service/persona.service';
 
 @Component({
   selector: 'app-body',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  constructor() { }
+  persona: Persona = new Persona(0,'','','','','',[],[],[],[],[]);
+
+  constructor(
+    private personaService: PersonaService
+  ) { }
 
   ngOnInit(): void {
+    this. personaService.buscar(1).subscribe(
+      data => {
+        this.persona = data;
+      },
+      err => {
+        alert("Error! " + err.message);
+      }
+    );
   }
 
 }

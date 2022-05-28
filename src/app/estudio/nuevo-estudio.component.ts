@@ -17,7 +17,7 @@ export class NuevoEstudioComponent implements OnInit {
   titulo: string = '';
   entrada: string = '';
   salida: string = '';
-  pers: Persona = new Persona(1,'','','','','');
+  pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
   constructor(private estudioService: EstudioService, private router: Router) { }
 

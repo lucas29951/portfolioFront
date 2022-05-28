@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from '../models/experiencia';
 import { ExperienciaService } from '../service/experiencia.service';
@@ -11,6 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class ListaExperienciaComponent implements OnInit {
 
+  @Input() exps: Experiencia[] = [];
   experiencias: Experiencia[] = [];
   uLogged: string = '';
 

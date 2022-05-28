@@ -1,11 +1,11 @@
 <div class="container">
-    <div class="row mb-2" *ngIf="persona">
+    <div class="row mb-2" *ngIf="perso">
         <div class="col-md-12">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-info">{{persona.profesion}}</strong>
-                    <h3 class="mb-0">{{persona.nombre}} {{ persona.apellido }}</h3>
-                    <p class="card-text mb-auto">{{persona.resumen}}</p>
+                    <strong class="d-inline-block mb-2 text-info">{{perso.profesion}}</strong>
+                    <h3 class="mb-0">{{perso.nombre}} {{ perso.apellido }}</h3>
+                    <p class="card-text mb-auto">{{perso.resumen}}</p>
                     <table>
                         <tr>
                             <td><a href="https://github.com/lucas29951"><i class="fa-brands fa-github fa-2x"></i></a></td>
@@ -18,10 +18,10 @@
                 </div>
                 
                 <div class="col-auto d-none d-lg-block">
-                    <img src="{{persona.foto}}" alt="foto" width="200">
+                    <img src="{{perso.foto}}" alt="foto" width="200">
                     
                 </div>
-                <button class="btn btn-warning" [routerLink]="['/modify-person/1']" *ngIf="uLogged!=''"><i class="fa-solid fa-pen-to-square"></i>  Editar</button>
+                <button class="btn btn-warning" routerLink="/modify-person/{{perso.idPersona}}" *ngIf="uLogged!=''"><i class="fa-solid fa-pen-to-square"></i>  Editar</button>
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ import { EstudioService } from '../service/estudio.service';
 })
 export class DetalleEstudioComponent implements OnInit {
 
-  estudio: Estudio = new Estudio(0,'','','','','',new Persona(1,'','','','',''));
+  estudio: Estudio = new Estudio(0,'','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
 
   constructor(
     private estudioService: EstudioService,

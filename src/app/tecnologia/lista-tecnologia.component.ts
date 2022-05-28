@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Tecnologia } from '../models/tecnologia';
 import { TecnologiaService } from '../service/tecnologia.service';
@@ -11,6 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class ListaTecnologiaComponent implements OnInit {
 
+  @Input() tecnos: Tecnologia[] = [];
   tecnologias: Tecnologia[] = [];
   uLogged: string = '';
 
@@ -22,7 +23,7 @@ export class ListaTecnologiaComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    this.cargarTecnologias();
+    //this.cargarTecnologias();
   }
 
   salir():void {
@@ -37,7 +38,7 @@ export class ListaTecnologiaComponent implements OnInit {
   cargarTecnologias(): void {
     this.tecnologiaService.listar().subscribe(
       data => {
-        this.tecnologias = data;
+        this.tecnos = data;
       },
       err => {
         console.log(err);

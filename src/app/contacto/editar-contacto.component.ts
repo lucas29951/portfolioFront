@@ -11,7 +11,7 @@ import { ContactoService } from '../service/contacto.service';
 })
 export class EditarContactoComponent implements OnInit {
 
-  contacto: Contacto = new Contacto(0,'','',new Persona(1,'','','','',''));
+  contacto: Contacto = new Contacto(0,'','',new Persona(1,'','','','','',[],[],[],[],[]));
 
   constructor(
     private contactoService: ContactoService,

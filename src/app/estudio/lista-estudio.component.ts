@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
 import { EstudioService } from '../service/estudio.service';
@@ -11,6 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class ListaEstudioComponent implements OnInit {
 
+  @Input() estus: Estudio[] = [];
   estudios: Estudio[] = [];
   uLogged: string = '';
 

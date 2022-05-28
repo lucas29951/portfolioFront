@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { PersonaService } from '../service/persona.service';
@@ -11,7 +11,8 @@ import { LoginService } from '../service/login.service';
 })
 export class DetallePersonaComponent implements OnInit {
 
-  persona: Persona = new Persona(0,'','','','','');
+  @Input() perso: Persona = new Persona(0,'','','','','',[],[],[],[],[]);
+  persona: Persona = new Persona(0,'','','','','',[],[],[],[],[]);
   uLogged: string = '';
 
   constructor(
@@ -23,8 +24,9 @@ export class DetallePersonaComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    const id = this.activatedRoute.snapshot.params['id'];
-    this.personaService.buscar(1).subscribe(
+    //const id = this.activatedRoute.snapshot.params['id'];
+    const id = 1;
+    this.personaService.buscar(id).subscribe(
       data => {
         this.persona = data;
       },

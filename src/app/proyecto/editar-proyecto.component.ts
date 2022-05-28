@@ -11,7 +11,7 @@ import { ProyectoService } from '../service/proyecto.service';
 })
 export class EditarProyectoComponent implements OnInit {
 
-  proyecto: Proyecto = new Proyecto(0,'','','','','',new Persona(1,'','','','',''));
+  proyecto: Proyecto = new Proyecto(0,'','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
 
   constructor(
     private proyectoService: ProyectoService,

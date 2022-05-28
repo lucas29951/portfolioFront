@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from '../models/proyecto';
 import { ProyectoService } from '../service/proyecto.service';
@@ -11,6 +11,7 @@ import { LoginService } from '../service/login.service';
 })
 export class ListaProyectoComponent implements OnInit {
 
+  @Input() pros: Proyecto[] = [];
   proyectos: Proyecto[] = [];
   uLogged: string = '';
 
