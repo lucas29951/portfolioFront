@@ -23,7 +23,7 @@ export class CarouselProyectoComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    this.cargarProyectos();
+    //this.cargarProyectos();
   }
 
   salir():void {

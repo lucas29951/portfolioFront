@@ -38,7 +38,7 @@ export class ListaTecnologiaComponent implements OnInit {
   cargarTecnologias(): void {
     this.tecnologiaService.listar().subscribe(
       data => {
-        this.tecnos = data;
+        this.tecnologias = data;
       },
       err => {
         console.log(err);

@@ -23,7 +23,7 @@ export class ListaEstudioComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    this.cargarEstudios();
+    //this.cargarEstudios();
   }
 
   salir():void {

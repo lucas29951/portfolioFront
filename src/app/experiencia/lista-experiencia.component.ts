@@ -23,7 +23,7 @@ export class ListaExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    this.cargarExperiencias();
+    //this.cargarExperiencias();
   }
 
   salir():void {
