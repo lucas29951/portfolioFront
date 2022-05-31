@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Experiencia } from '../models/experiencia';
+import { Persona } from '../models/persona';
 import { ExperienciaService } from '../service/experiencia.service';
 import { LoginService } from '../service/login.service';
 
@@ -13,6 +14,7 @@ export class ListaExperienciaComponent implements OnInit {
 
   @Input() exps: Experiencia[] = [];
   experiencias: Experiencia[] = [];
+  experiencia: Experiencia = new Experiencia(0,'','','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
   uLogged: string = '';
 
   constructor(
@@ -57,4 +59,17 @@ export class ListaExperienciaComponent implements OnInit {
       }
     );
   }
+
+vistaDetalle(id: number):void {
+    this.experienciaService.buscar(id).subscribe(
+      data => {
+        this.experiencia = data;
+      },
+      err => {
+        alert('Error!' + err.message);
+      }
+    )
 }
+
+}
+

@@ -14,7 +14,7 @@
                 <i class="fa-solid fa-pen-to-square"></i> 
                 Editar Proyectos
               </button>
-              <button class="btn btn-secondary" routerLink="/show-projects" *ngIf="uLogged==''">
+              <button class="btn btn-secondary" (click)="listaProyectos()" *ngIf="uLogged==''">
                 Ver Lista
               </button>
             </h2>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from './service/login.service';
+import { PersonaService } from './service/persona.service';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,16 @@ export class AppComponent implements OnInit{
   password: string = '';
   loginError: string = '';
   uLogged: string = '';
+  perso: string = '';
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private persoService: PersonaService
   ) {}
 
-  login() {
+/*   login() {
     console.log(this.username);
     console.log(this.password);
 
@@ -39,10 +42,10 @@ export class AppComponent implements OnInit{
         }
       }
     );
-  }
+  } */
 
 ngOnInit(): void {
-  this.uLogged = this.loginService.getUserLogged();
+  //this.uLogged = this.loginService.getUserLogged();
 }
 
 salir():void {

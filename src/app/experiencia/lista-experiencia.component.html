@@ -22,16 +22,64 @@
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <button class="btn btn-primary" routerLink="/view-exp/{{experiencia.idExp}}"><i
-                                                class="fa-solid fa-eye"></i> Ver</button>
-                                        <button class="btn btn-warning" routerLink="/modify-exp/{{experiencia.idExp}}"><i
+                                        <!-- <button class="btn btn-primary" routerLink="/view-exp/{{experiencia.idExp}}"><i
+                                                class="fa-solid fa-eye"></i> Ver</button> -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#detailExpModal" (click)="vistaDetalle(experiencia.idExp)">
+                                            <i class="fa-solid fa-eye"></i>
+                                            Ver
+                                        </button>
+                                        <button class="btn btn-warning"
+                                            routerLink="/modify-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                        <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i class="fa-solid fa-trash-can"></i>
+                                        <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i
+                                                class="fa-solid fa-trash-can"></i>
                                             Borrar</button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="detailExpModal" tabindex="-1" aria-labelledby="detailExpModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="detailExpModalLabel">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                            Detalle
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="list-group list-group-flush" *ngIf="experiencia">
+                                            <li class="list-group-item"><b>ID: </b>{{experiencia.idExp}}</li>
+                                            <li class="list-group-item"><b>PUESTO: </b>{{experiencia.nombre_puesto}}
+                                            </li>
+                                            <li class="list-group-item"><b>EMPRESA: </b>{{experiencia.lugar}}</li>
+                                            <li class="list-group-item"><b>LOGO: </b>{{experiencia.logo_empresa}}</li>
+                                            <li class="list-group-item"><b>FECHA DE INICIO:
+                                                </b>{{experiencia.fecha_inicio}}</li>
+                                            <li class="list-group-item"><b>FECHA DE FINALIZACION:
+                                                </b>{{experiencia.fecha_fin}}</li>
+                                            <li class="list-group-item"><b>DESCRIPCION: </b>{{experiencia.descripcion}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- <div class="form-group">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
+                                                Enter
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

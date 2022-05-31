@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
+import { Persona } from '../models/persona';
 import { EstudioService } from '../service/estudio.service';
 import { LoginService } from '../service/login.service';
 
@@ -13,6 +14,7 @@ export class ListaEstudioComponent implements OnInit {
 
   @Input() estus: Estudio[] = [];
   estudios: Estudio[] = [];
+  estudio: Estudio = new Estudio(0,'','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
   uLogged: string = '';
 
   constructor(
@@ -57,4 +59,16 @@ export class ListaEstudioComponent implements OnInit {
       }
     );
   }
+
+  vistaDetalle(id: number):void {
+    this.estudioService.buscar(id).subscribe(
+      data => {
+        this.estudio = data;
+      },
+      err => {
+        alert('Error!' + err.message);
+      }
+    )
+}
+
 }

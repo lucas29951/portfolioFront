@@ -21,9 +21,11 @@ export class EditarTecnologiaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+    console.log(id);
     this.tecnologiaService.buscar(id).subscribe(
       data => {
         this.tecnologia = data;
+        console.log(this.tecnologia);
       },
       err => {
         alert('Error al mostrar tecnologia ' + id + '. ' + err.message);
@@ -34,6 +36,7 @@ export class EditarTecnologiaComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
+    console.log(id);
     this.tecnologiaService.editar(id,this.tecnologia).subscribe(
       data => {
         alert('Tecnologia actualizada!');
@@ -44,5 +47,6 @@ export class EditarTecnologiaComponent implements OnInit {
         this.router.navigate(['/']);
       }
     );
+    console.log(this.tecnologia);
   }
 }

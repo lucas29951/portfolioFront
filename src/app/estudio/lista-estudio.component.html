@@ -22,15 +22,61 @@
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <button class="btn btn-primary" routerLink="/view-study/{{estudio.idEstudio}}"><i
-                                                class="fa-solid fa-eye"></i></button>
-                                        <button class="btn btn-warning" routerLink="/modify-study/{{estudio.idEstudio}}"><i
+                                        <!-- <button class="btn btn-primary" routerLink="/view-study/{{estudio.idEstudio}}"><i
+                                                class="fa-solid fa-eye"></i></button> -->
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                            data-bs-target="#detailStudyModal" (click)="vistaDetalle(estudio.idEstudio)">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button class="btn btn-warning"
+                                            routerLink="/modify-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i class="fa-solid fa-trash-can"></i></button>
+                                        <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i
+                                                class="fa-solid fa-trash-can"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="detailStudyModal" tabindex="-1" aria-labelledby="detailStudyModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="detailStudyModalLabel">
+                                            <i class="fa-solid fa-circle-info"></i>
+                                            Detalle
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <ul class="list-group list-group-flush" *ngIf="estudio">
+                                            <li class="list-group-item"><b>ID: </b>{{estudio.idEstudio}}</li>
+                                            <li class="list-group-item"><b>INSTITUCION:
+                                                </b>{{estudio.nombre_institucion}}</li>
+                                            <li class="list-group-item"><b>LOGO DE LA INSTITUCION: </b>{{estudio.logo}}
+                                            </li>
+                                            <li class="list-group-item"><b>TITULO: </b>{{estudio.titulo}}</li>
+                                            <li class="list-group-item"><b>FECHA DE ENTRADA:
+                                                </b>{{estudio.fecha_entrada}}</li>
+                                            <li class="list-group-item"><b>FECHA DE SALIDA: </b>{{estudio.fecha_salida}}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- <div class="form-group">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
+                                                Enter
+                                            </button>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
