@@ -34,4 +34,8 @@ export class NuevaTecnologiaComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

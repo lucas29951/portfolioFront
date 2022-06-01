@@ -45,4 +45,8 @@ export class EditarEstudioComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

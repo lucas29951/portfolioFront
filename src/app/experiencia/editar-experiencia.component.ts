@@ -45,4 +45,8 @@ export class EditarExperienciaComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

@@ -44,4 +44,8 @@ export class EditarPersonaComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

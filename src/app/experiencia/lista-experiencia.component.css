@@ -42,3 +42,8 @@ tr:hover td{
     color: #fff;
     cursor: pointer;
 }
+
+.modal-header {
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    color: #ddd;
+}

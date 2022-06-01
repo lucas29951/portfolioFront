@@ -39,4 +39,8 @@ export class NuevaExperienciaComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

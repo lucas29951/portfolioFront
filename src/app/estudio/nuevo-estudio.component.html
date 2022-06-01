@@ -1,6 +1,6 @@
 <app-header-empty></app-header-empty>
 
-<div class="container">
+<!-- <div class="container">
     <div class="row mt-5">
         <div class="col-md-5 mx-auto">
             <h2>Agregar Estudio</h2>
@@ -30,4 +30,44 @@
             </form>
         </div>
     </div>
-</div>
+</div> -->
+
+
+<div class="card mt-3">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fa-solid fa-square-plus"></i>  Agregar Estudio</h5>
+          
+          <form (ngSubmit)="onCreate()" novalidated #f="ngForm">
+            <div class="form-group">
+                <label for="nombre">Nombre de la Institucion:</label>
+                <input type="text" class="form-group" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="logo">Logo de la Institucion:</label>
+                <input type="text" class="form-group" id="logo" name="logo" [(ngModel)]="logo" required>
+            </div>
+            <div class="form-group">
+                <label for="titulo">Titulo Recibido:</label>
+                <input type="text" class="form-group" id="titulo" name="titulo" [(ngModel)]="titulo" required>
+            </div>
+            <div class="form-group">
+                <label for="entrada">Fecha de Entrada:</label>
+                <input type="text" class="form-group" id="entrada" name="entrada" [(ngModel)]="entrada" required>
+            </div>
+            <div class="form-group">
+                <label for="salida">Fecha de Salida:</label>
+                <input type="text" class="form-group" id="salida" name="salida" [(ngModel)]="salida" required>
+            </div>
+            <button class="btn btn-success btn-block" [disabled]="!f.valid">Crear</button>
+            <button class="btn btn-secondary btn-block" (click)="volver()">Cancelar</button>
+        </form>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h5><i class="fa-solid fa-image"></i>  Vista Previa</h5>
+                <img src="{{logo}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+      </div>
+    </div>
+  </div>

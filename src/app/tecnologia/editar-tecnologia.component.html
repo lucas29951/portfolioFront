@@ -1,6 +1,6 @@
 <app-header-empty></app-header-empty>
 
-<div class="container" *ngIf="tecnologia">
+<!-- <div class="container" *ngIf="tecnologia">
     <div class="row mt-5">
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
@@ -16,6 +16,35 @@
                 </div>
                 <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
             </form>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container mt-4">
+    <div class="card mb-6">
+        <div class="row g-0" *ngIf="tecnologia">
+            <div class="col-md">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa-solid fa-pen-to-square"></i>  Editar</h5>
+                    <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre de la Tecnologia:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                [(ngModel)]="tecnologia.nombre_tecno" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="nivel">Nivel de Conocimiento: (0 a 100)</label>
+                            <input type="text" class="form-control" id="nivel" name="nivel"
+                                [(ngModel)]="tecnologia.nivel" required>
+                        </div>
+                        
+                        <br>
+                        <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
+                        <button class="btn btn-secondary btn-block" (click)="volver()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

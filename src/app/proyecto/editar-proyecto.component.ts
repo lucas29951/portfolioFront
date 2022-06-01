@@ -45,4 +45,8 @@ export class EditarProyectoComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

@@ -1,0 +1,26 @@
+.container {
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+h2 {
+    margin-top: 15px;
+    color: #ddd;
+}
+
+label {
+    color: #ddd;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin-top: 15px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 90%;
+}

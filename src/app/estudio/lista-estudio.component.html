@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h2>Estudios <button class="btn btn-success" routerLink="/add-exp" *ngIf="uLogged!=''"><i
+                    <h2>Estudios <button class="btn btn-success" routerLink="/add-study" *ngIf="uLogged!=''"><i
                                 class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
                     <div class="main-container">
@@ -56,7 +56,8 @@
                                             <li class="list-group-item"><b>ID: </b>{{estudio.idEstudio}}</li>
                                             <li class="list-group-item"><b>INSTITUCION:
                                                 </b>{{estudio.nombre_institucion}}</li>
-                                            <li class="list-group-item"><b>LOGO DE LA INSTITUCION: </b>{{estudio.logo}}
+                                            <li class="list-group-item"><b>LOGO DE LA INSTITUCION: </b>
+                                                <img src="{{estudio.logo}}" alt="logo institucion" width="50">
                                             </li>
                                             <li class="list-group-item"><b>TITULO: </b>{{estudio.titulo}}</li>
                                             <li class="list-group-item"><b>FECHA DE ENTRADA:

@@ -49,4 +49,8 @@ export class EditarTecnologiaComponent implements OnInit {
     );
     console.log(this.tecnologia);
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

@@ -1,6 +1,6 @@
 <app-header-empty></app-header-empty>
 
-<div class="container" *ngIf="experiencia">
+<!-- <div class="container" *ngIf="experiencia">
     <div class="row mt-5">
         <div class="col-md-4 mx-auto">
             <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
@@ -18,6 +18,8 @@
                     <label for="logo">Logo de la Empresa: (link)</label>
                     <input type="text" class="form-control" id="logo" name="logo"
                     [(ngModel)]="experiencia.logo_empresa" required>
+                    <p>Vista Previa</p>
+                    <img src="{{experiencia.logo_empresa}}" alt="vista previa foto" width="100">
                 </div>
                 <div class="form-group">
                     <label for="inicio">Fecha de Inicio:</label>
@@ -36,6 +38,58 @@
                 </div>
                 <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
             </form>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="container mt-4">
+    <div class="card mb-3">
+        <div class="row g-0" *ngIf="experiencia">
+            <div class="col-md-9">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fa-solid fa-pen-to-square"></i> Editar</h5>
+                    <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Puesto:</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre"
+                                [(ngModel)]="experiencia.nombre_puesto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lugar">Empresa:</label>
+                            <input type="text" class="form-control" id="lugar" name="lugar"
+                                [(ngModel)]="experiencia.lugar" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="logo">Logo de la Empresa: (link)</label>
+                            <input type="text" class="form-control" id="logo" name="logo"
+                                [(ngModel)]="experiencia.logo_empresa" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inicio">Fecha de Inicio:</label>
+                            <input type="text" class="form-control" id="inicio" name="inicio"
+                                [(ngModel)]="experiencia.fecha_inicio" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fin">Fecha de Finalizacion:</label>
+                            <input type="text" class="form-control" id="fin" name="fin"
+                                [(ngModel)]="experiencia.fecha_fin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc">Descripcion:</label>
+                            <input type="text" class="form-control" id="desc" name="desc" 
+                            [(ngModel)]="experiencia.descripcion" required>
+                        </div>
+                        <br>
+                        <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
+                        <button class="btn btn-secondary btn-block" (click)="volver()">Cancelar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <h5><i class="fa-solid fa-image"></i> Vista Previa</h5>
+                <img src="{{experiencia.logo_empresa}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+            </div>
         </div>
     </div>
 </div>

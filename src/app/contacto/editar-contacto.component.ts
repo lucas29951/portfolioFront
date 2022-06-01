@@ -45,4 +45,8 @@ export class EditarContactoComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }

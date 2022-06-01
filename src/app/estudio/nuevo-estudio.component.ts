@@ -37,4 +37,8 @@ export class NuevoEstudioComponent implements OnInit {
       }
     );
   }
+
+  volver():void {
+    this.router.navigate(['/']);
+  }
 }
