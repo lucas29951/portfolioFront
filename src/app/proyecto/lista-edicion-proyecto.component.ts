@@ -80,4 +80,7 @@ export class ListaEdicionProyectoComponent implements OnInit {
     )
 }
 
+volver():void {
+  this.router.navigate(['/']);
+}
 }

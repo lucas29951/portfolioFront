@@ -40,6 +40,11 @@ export class CarouselProyectoComponent implements OnInit {
     this.router.navigate(['/show-projects']);
   }
 
+  listaProyectosEdicion():void {
+    this.persoService.setToken(this.person.idPersona.toString());
+    this.router.navigate(['/edit-project-list']);
+  }
+
   cargarProyectos(): void {
     this.proyectoService.listar().subscribe(
       data => {

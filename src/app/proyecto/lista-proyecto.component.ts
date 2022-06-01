@@ -43,9 +43,7 @@ export class ListaProyectoComponent implements OnInit {
 
   cargarProyectosDePersona(): void {
     Number(this.perso);
-    console.log("cookie: " + this.perso);
     const id = parseInt(this.perso);
-    console.log("ID:" + id);
     this.persoService.buscar(id).subscribe(
       data => {
         this.proyectos = data.proyectos;
