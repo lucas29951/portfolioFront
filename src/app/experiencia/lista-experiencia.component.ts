@@ -15,6 +15,7 @@ export class ListaExperienciaComponent implements OnInit {
   @Input() exps: Experiencia[] = [];
   experiencias: Experiencia[] = [];
   experiencia: Experiencia = new Experiencia(0,'','','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
+  indice: number = 0;
   uLogged: string = '';
 
   constructor(
@@ -25,16 +26,8 @@ export class ListaExperienciaComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
+    this.indice = 0;
     //this.cargarExperiencias();
-  }
-
-  salir():void {
-    this.loginService.deleteToken();
-    this.uLogged = '';
-  }
-
-  loggearse():void {
-    this.router.navigate(['/login']);
   }
   
   cargarExperiencias(): void {
@@ -48,11 +41,12 @@ export class ListaExperienciaComponent implements OnInit {
     );
   }
 
-  borrar(id: number): void {
+  borrar(id: number, index: number): void {
     this.experienciaService.borrar(id).subscribe(
       data => {
-        alert('Experiencia eliminada!');
-        this.cargarExperiencias();
+        //alert('Experiencia eliminada!');
+        //this.cargarExperiencias();
+        this.exps.splice(index,1);
       },
       err => {
         alert('Error al eliminar experiencia. ' + err.message);
@@ -69,6 +63,28 @@ vistaDetalle(id: number):void {
         alert('Error!' + err.message);
       }
     )
+}
+
+confirmar(id: number,index: number):void {
+  this.experienciaService.buscar(id).subscribe(
+    data => {
+      this.experiencia = data;
+      this.indice = index;
+      console.log(this.indice);
+    },
+    err => {
+      alert('Error!' + err.message);
+    }
+  )
+}
+
+salir():void {
+  this.loginService.deleteToken();
+  this.uLogged = '';
+}
+
+loggearse():void {
+  this.router.navigate(['/login']);
 }
 
 }

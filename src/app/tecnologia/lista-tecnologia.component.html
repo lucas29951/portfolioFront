@@ -7,7 +7,7 @@
                                 class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
                     <div id="skill">
-                        <table *ngFor="let tecnologia of tecnos">
+                        <table *ngFor="let tecnologia of tecnos; index as i">
                             <tr>
                                 <td>
                                     <div class="skill-container">
@@ -26,10 +26,48 @@
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </td>
                                 <td *ngIf="uLogged!=''">
-                                    <button class="btn btn-danger" (click)="borrar(tecnologia.idTec)"><i class="fa-solid fa-trash-can"></i></button>
+                                    <!-- <button class="btn btn-danger" (click)="borrar(tecnologia.idTec,i)"><i class="fa-solid fa-trash-can"></i></button> -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        data-bs-target="#confirmTecModal" (click)="confirmar(tecnologia.idTec,i)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
                                 </td>
                             </tr>
                         </table>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="confirmTecModal" tabindex="-1" aria-labelledby="confirmTecModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmTecModalLabel"><i
+                                                class="fa-solid fa-trash-can"></i>
+                                            Borrar</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group" *ngIf="tecnologia">
+                                            <div class="mb-3">
+                                                <h4><b>¿Esta seguro que desea borrar la tecnologia
+                                                        '{{tecnologia.nombre_tecno}}'?</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group" *ngIf="tecnologia && indice>=0">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">NO</button>
+                                            <button type="submit" class="btn btn-success"
+                                                (click)="borrar(tecnologia.idTec,indice)" data-bs-dismiss="modal">
+                                                SI
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

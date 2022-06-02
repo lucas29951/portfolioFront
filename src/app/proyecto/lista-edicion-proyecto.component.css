@@ -82,3 +82,13 @@ tr:hover td{
     background: linear-gradient(90deg,#4a5e83,#3c2446);
     color: #ddd;
 }
+
+h4 {
+    color: rgb(37, 37, 37);
+    font-size: 17px;
+    text-align: center;
+}
+
+.modal-footer .btn {
+    margin-right: 20px;
+}

@@ -21,19 +21,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let proyecto of proyectos">
+                <tr *ngFor="let proyecto of proyectos; index as i">
                     <td>{{proyecto.nombre_proyecto}}</td>
                     <td>{{proyecto.fecha_realizacion}}</td>
                     <td>{{proyecto.descripcion}}</td>
-                    <td>{{proyecto.enlace_proyecto}}</td>
+                    <td><a href="{{proyecto.enlace_proyecto}}" target="_blank">{{proyecto.enlace_proyecto}}</a></td>
                     <td *ngIf="uLogged!=''">
                         <!-- <button class="btn btn-primary" routerLink="/view-project/{{proyecto.idProyecto}}"><i class="fa-solid fa-eye"></i></button> -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#detailProjectModal" (click)="vistaDetalle(proyecto.idProyecto)">
-                                            <i class="fa-solid fa-eye"></i>
-                                        </button>
-                        <button class="btn btn-warning" routerLink="/modify-project/{{proyecto.idProyecto}}"><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button class="btn btn-danger" (click)="borrar(proyecto.idProyecto)">
+                            data-bs-target="#detailProjectModal" (click)="vistaDetalle(proyecto.idProyecto)">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                        <button class="btn btn-warning" routerLink="/modify-project/{{proyecto.idProyecto}}"><i
+                                class="fa-solid fa-pen-to-square"></i></button>
+                        <!-- <button class="btn btn-danger" (click)="borrar(proyecto.idProyecto)">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button> -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#confirmProyModal" (click)="confirmar(proyecto.idProyecto,i)">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                     </td>
@@ -43,39 +48,72 @@
 
         <!-- Modal -->
         <div class="modal fade" id="detailProjectModal" tabindex="-1" aria-labelledby="detailProjectModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailProjectModalLabel">
-                        <i class="fa-solid fa-circle-info"></i>
-                        Detalle
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul class="list-group list-group-flush" *ngIf="proyecto">
-                        <li class="list-group-item"><b>ID: </b>{{proyecto.idProyecto}}</li>
-                        <li class="list-group-item"><b>NOMBRE DEL PROYECTO: </b>{{proyecto.nombre_proyecto}}</li>
-                        <li class="list-group-item"><b>FECHA DE REALIZACION: </b>{{proyecto.fecha_realizacion}}</li>
-                        <li class="list-group-item"><b>DESCRIPCION: </b>{{proyecto.descripcion}}</li>
-                        <li class="list-group-item"><b>ENLACE: </b>{{proyecto.enlace_proyecto}}</li>
-                        <li class="list-group-item"><b>IMAGEN DEMOSTRATIVA: (link)</b>
-                            <img src="{{proyecto.imagen_demo}}" alt="imagen demostrativa" width="50"></li>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <!-- <div class="form-group">
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="detailProjectModalLabel">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Detalle
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="list-group list-group-flush" *ngIf="proyecto">
+                            <li class="list-group-item"><b>ID: </b>{{proyecto.idProyecto}}</li>
+                            <li class="list-group-item"><b>NOMBRE DEL PROYECTO: </b>{{proyecto.nombre_proyecto}}</li>
+                            <li class="list-group-item"><b>FECHA DE REALIZACION: </b>{{proyecto.fecha_realizacion}}</li>
+                            <li class="list-group-item"><b>DESCRIPCION: </b>{{proyecto.descripcion}}</li>
+                            <li class="list-group-item"><b>ENLACE: </b>
+                                <a href="{{proyecto.enlace_proyecto}}" target="_blank">{{proyecto.enlace_proyecto}}</a>
+                            </li>
+                            <li class="list-group-item"><b>IMAGEN DEMOSTRATIVA: (link)</b>
+                                <img src="{{proyecto.imagen_demo}}" alt="imagen demostrativa" width="50">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <div class="form-group">
                         <button type="button" class="btn btn-secondary"
                             data-bs-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
                             Enter
                         </button>
                     </div> -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmProyModal" tabindex="-1" aria-labelledby="confirmProyModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmProyModalLabel"><i class="fa-solid fa-trash-can"></i>
+                            Borrar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group" *ngIf="proyecto">
+                            <div class="mb-3">
+                                <h4><b>¿Esta seguro que desea borrar el proyecto
+                                        '{{proyecto.nombre_proyecto}}'?</b></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group" *ngIf="proyecto && indice>=0">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">NO</button>
+                            <button type="submit" class="btn btn-success" (click)="borrar(proyecto.idProyecto,indice)"
+                                data-bs-dismiss="modal">
+                                SI
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

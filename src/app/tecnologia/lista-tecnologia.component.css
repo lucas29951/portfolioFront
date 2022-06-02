@@ -54,3 +54,21 @@ table td {
     justify-content: center;
     margin: 5px auto;
 }
+
+.modal-header {
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    color: #ddd;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+h4 {
+    color: rgb(37, 37, 37);
+    font-size: 17px;
+}
+
+.modal-footer .btn {
+    margin-right: 20px;
+}

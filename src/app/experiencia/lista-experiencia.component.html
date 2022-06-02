@@ -17,7 +17,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let experiencia of exps">
+                                <tr *ngFor="let experiencia of exps; index as i">
                                     <td>{{experiencia.nombre_puesto}}</td>
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>
@@ -32,9 +32,13 @@
                                         <button class="btn btn-warning"
                                             routerLink="/modify-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                        <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i
+                                        <!-- <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i
                                                 class="fa-solid fa-trash-can"></i>
-                                            Borrar</button>
+                                            Borrar</button> -->
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#confirmExpModal" (click)="confirmar(experiencia.idExp,i)">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -59,7 +63,9 @@
                                             <li class="list-group-item"><b>PUESTO: </b>{{experiencia.nombre_puesto}}
                                             </li>
                                             <li class="list-group-item"><b>EMPRESA: </b>{{experiencia.lugar}}</li>
-                                            <li class="list-group-item"><b>LOGO: </b><img src="{{experiencia.logo_empresa}}" alt="logo empresa" width="50"></li>
+                                            <li class="list-group-item"><b>LOGO: </b><img
+                                                    src="{{experiencia.logo_empresa}}" alt="logo empresa" width="50">
+                                            </li>
                                             <li class="list-group-item"><b>FECHA DE INICIO:
                                                 </b>{{experiencia.fecha_inicio}}</li>
                                             <li class="list-group-item"><b>FECHA DE FINALIZACION:
@@ -76,6 +82,40 @@
                                                 Enter
                                             </button>
                                         </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="confirmExpModal" tabindex="-1"
+                            aria-labelledby="confirmExpModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmExpModalLabel"><i
+                                                class="fa-solid fa-trash-can"></i>
+                                            Borrar</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group" *ngIf="experiencia">
+                                            <div class="mb-3">
+                                                <h4><b>¿Esta seguro que desea borrar la experiencia
+                                                        '{{experiencia.nombre_puesto}}'?</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group" *ngIf="experiencia && indice>=0">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">NO</button>
+                                            <button type="submit" class="btn btn-success"
+                                                (click)="borrar(experiencia.idExp,indice)" data-bs-dismiss="modal">
+                                                SI
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

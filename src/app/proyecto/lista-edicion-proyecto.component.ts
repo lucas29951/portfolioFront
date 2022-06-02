@@ -16,6 +16,7 @@ export class ListaEdicionProyectoComponent implements OnInit {
   @Input() pros: Proyecto[] = [];
   proyectos: Proyecto[] = [];
   proyecto: Proyecto = new Proyecto(0,'','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
+  indice: number = 0;
   uLogged: string = '';
   perso: string = '';
 
@@ -29,6 +30,7 @@ export class ListaEdicionProyectoComponent implements OnInit {
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
     this.perso = this.persoService.getPersonStay();
+    this.indice = 0;
     this.cargarProyectosDePersona();
   }
 
@@ -57,11 +59,12 @@ export class ListaEdicionProyectoComponent implements OnInit {
     );
   } */
 
-  borrar(id: number): void {
+  borrar(id: number, index: number): void {
     this.proyectoService.borrar(id).subscribe(
       data => {
-        alert('Proyecto eliminado!');
-        this.cargarProyectosDePersona();
+        //alert('Proyecto eliminado!');
+        //this.cargarProyectosDePersona();
+        this.proyectos.splice(index,1);
       },
       err => {
         alert('Error al eliminar proyecto. ' + err.message);
@@ -78,6 +81,19 @@ export class ListaEdicionProyectoComponent implements OnInit {
         alert('Error!' + err.message);
       }
     )
+}
+
+confirmar(id: number,index: number):void {
+  this.proyectoService.buscar(id).subscribe(
+    data => {
+      this.proyecto = data;
+      this.indice = index;
+      console.log(this.indice);
+    },
+    err => {
+      alert('Error!' + err.message);
+    }
+  )
 }
 
 volver():void {

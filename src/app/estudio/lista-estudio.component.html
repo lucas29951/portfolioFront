@@ -17,7 +17,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let estudio of estus">
+                                <tr *ngFor="let estudio of estus; index as i">
                                     <td>{{estudio.titulo}}</td>
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
@@ -25,22 +25,27 @@
                                         <!-- <button class="btn btn-primary" routerLink="/view-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-eye"></i></button> -->
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                            data-bs-target="#detailStudyModal" (click)="vistaDetalle(estudio.idEstudio)">
+                                            data-bs-target="#detailStudyModal"
+                                            (click)="vistaDetalle(estudio.idEstudio)">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                         <button class="btn btn-warning"
                                             routerLink="/modify-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                        <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i
-                                                class="fa-solid fa-trash-can"></i></button>
+                                        <!-- <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i
+                                                class="fa-solid fa-trash-can"></i></button> -->
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                            data-bs-target="#confirmEstuModal" (click)="confirmar(estudio.idEstudio,i)">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="detailStudyModal" tabindex="-1" aria-labelledby="detailStudyModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="detailStudyModal" tabindex="-1"
+                            aria-labelledby="detailStudyModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -74,6 +79,40 @@
                                                 Enter
                                             </button>
                                         </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="confirmEstuModal" tabindex="-1"
+                            aria-labelledby="confirmEstuModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="confirmEstuModalLabel"><i
+                                                class="fa-solid fa-trash-can"></i>
+                                            Borrar</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group" *ngIf="estudio">
+                                            <div class="mb-3">
+                                                <h4><b>¿Esta seguro que desea borrar el estudio 
+                                                        '{{estudio.titulo}}'?</b></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="form-group" *ngIf="estudio && indice>=0">
+                                            <button type="button" class="btn btn-danger"
+                                                data-bs-dismiss="modal">NO</button>
+                                            <button type="submit" class="btn btn-success"
+                                                (click)="borrar(estudio.idEstudio,indice)" data-bs-dismiss="modal">
+                                                SI
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

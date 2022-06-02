@@ -134,8 +134,9 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
+  exports: [RouterModule],
   providers: [CookieService],
   bootstrap: [AppComponent]
 })
