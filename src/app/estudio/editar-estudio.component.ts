@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
 import { Persona } from '../models/persona';
 import { EstudioService } from '../service/estudio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-estudio',
@@ -36,11 +37,19 @@ export class EditarEstudioComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.estudioService.editar(id,this.estudio).subscribe(
       data => {
-        alert('Estudio actualizado!');
+        Swal.fire({
+          title: 'OK',
+          text: 'Estudio actualizado!',
+          icon: 'success'
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar estudio. ' + err.message);
+        Swal.fire({
+          title: 'ERROR',
+          text: 'Error al actualizar estudio: ' + err.message,
+          icon: 'error'
+        });
         this.router.navigate(['/']);
       }
     );

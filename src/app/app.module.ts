@@ -22,8 +22,6 @@ import { ListaExperienciaComponent } from './experiencia/lista-experiencia.compo
 import { NuevaExperienciaComponent } from './experiencia/nueva-experiencia.component';
 import { EditarExperienciaComponent } from './experiencia/editar-experiencia.component';
 
-import { ListaPersonaComponent } from './persona/lista-persona.component';
-import { NuevaPersonaComponent } from './persona/nueva-persona.component';
 import { EditarPersonaComponent } from './persona/editar-persona.component';
 
 import { ListaProyectoComponent } from './proyecto/lista-proyecto.component';
@@ -34,17 +32,11 @@ import { ListaTecnologiaComponent } from './tecnologia/lista-tecnologia.componen
 import { NuevaTecnologiaComponent } from './tecnologia/nueva-tecnologia.component';
 import { EditarTecnologiaComponent } from './tecnologia/editar-tecnologia.component';
 
-import { ListaUsuarioComponent } from './usuario/lista-usuario.component';
 import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 
-import { DetalleContactoComponent } from './contacto/detalle-contacto.component';
-import { DetalleEstudioComponent } from './estudio/detalle-estudio.component';
-import { DetalleExperienciaComponent } from './experiencia/detalle-experiencia.component';
 import { DetallePersonaComponent } from './persona/detalle-persona.component';
-import { DetalleProyectoComponent } from './proyecto/detalle-proyecto.component';
-import { DetalleTecnologiaComponent } from './tecnologia/detalle-tecnologia.component';
-import { DetalleUsuarioComponent } from './usuario/detalle-usuario.component';
+
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
@@ -64,7 +56,6 @@ const routes: Routes = [
   { path: 'add-contact', component: NuevoContactoComponent },
   { path: 'add-study', component: NuevoEstudioComponent },
   { path: 'add-exp', component: NuevaExperienciaComponent },
-  { path: 'add-person', component: NuevaPersonaComponent },
   { path: 'add-project', component: NuevoProyectoComponent },
   { path: 'add-tecno', component: NuevaTecnologiaComponent },
   { path: 'add-user', component: NuevoUsuarioComponent },
@@ -77,13 +68,7 @@ const routes: Routes = [
   { path: 'modify-tecno/:id', component: EditarTecnologiaComponent },
   { path: 'modify-user/:id', component: EditarUsuarioComponent },
   /* -----  Rutas de Vista Detalle de elementos  ----- */
-  { path: 'view-contact/:id', component: DetalleContactoComponent },
-  { path: 'view-study/:id', component: DetalleEstudioComponent },
-  { path: 'view-exp/:id', component: DetalleExperienciaComponent },
   { path: 'view-person/:id', component: DetallePersonaComponent },
-  { path: 'view-project/:id', component: DetalleProyectoComponent },
-  { path: 'view-tecno/:id', component: DetalleTecnologiaComponent },
-  { path: 'view-user/:id', component: DetalleUsuarioComponent },
   /* -----  Rutas de Lista de elementos  ----- */
   { path: 'show-projects', component: ListaProyectoComponent },
   { path: 'edit-project-list', component: ListaEdicionProyectoComponent },
@@ -102,8 +87,6 @@ const routes: Routes = [
     ListaExperienciaComponent,
     NuevaExperienciaComponent,
     EditarExperienciaComponent,
-    ListaPersonaComponent,
-    NuevaPersonaComponent,
     EditarPersonaComponent,
     ListaProyectoComponent,
     NuevoProyectoComponent,
@@ -111,16 +94,9 @@ const routes: Routes = [
     ListaTecnologiaComponent,
     NuevaTecnologiaComponent,
     EditarTecnologiaComponent,
-    ListaUsuarioComponent,
     NuevoUsuarioComponent,
     EditarUsuarioComponent,
-    DetalleContactoComponent,
-    DetalleEstudioComponent,
-    DetalleExperienciaComponent,
     DetallePersonaComponent,
-    DetalleProyectoComponent,
-    DetalleTecnologiaComponent,
-    DetalleUsuarioComponent,
     HeaderComponent,
     BodyComponent,
     FooterComponent,

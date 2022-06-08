@@ -27,16 +27,12 @@
                     <td>{{proyecto.descripcion}}</td>
                     <td><a href="{{proyecto.enlace_proyecto}}" target="_blank">{{proyecto.enlace_proyecto}}</a></td>
                     <td *ngIf="uLogged!=''">
-                        <!-- <button class="btn btn-primary" routerLink="/view-project/{{proyecto.idProyecto}}"><i class="fa-solid fa-eye"></i></button> -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#detailProjectModal" (click)="vistaDetalle(proyecto.idProyecto)">
                             <i class="fa-solid fa-eye"></i>
                         </button>
                         <button class="btn btn-warning" routerLink="/modify-project/{{proyecto.idProyecto}}"><i
                                 class="fa-solid fa-pen-to-square"></i></button>
-                        <!-- <button class="btn btn-danger" (click)="borrar(proyecto.idProyecto)">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button> -->
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#confirmProyModal" (click)="confirmar(proyecto.idProyecto,i)">
                             <i class="fa-solid fa-trash-can"></i>
@@ -73,13 +69,7 @@
                         </ul>
                     </div>
                     <div class="modal-footer">
-                        <!-- <div class="form-group">
-                        <button type="button" class="btn btn-secondary"
-                            data-bs-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
-                            Enter
-                        </button>
-                    </div> -->
+                        
                     </div>
                 </div>
             </div>

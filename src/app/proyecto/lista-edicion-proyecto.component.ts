@@ -47,23 +47,9 @@ export class ListaEdicionProyectoComponent implements OnInit {
     );
   }
 
-/*   cargarProyectos(): void {
-    this.proyectoService.listar().subscribe(
-      data => {
-        this.proyectos = data;
-        
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  } */
-
   borrar(id: number, index: number): void {
     this.proyectoService.borrar(id).subscribe(
       data => {
-        //alert('Proyecto eliminado!');
-        //this.cargarProyectosDePersona();
         this.proyectos.splice(index,1);
       },
       err => {

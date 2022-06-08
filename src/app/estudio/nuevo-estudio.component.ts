@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
 import { Persona } from '../models/persona';
 import { EstudioService } from '../service/estudio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nuevo-estudio',
@@ -19,7 +20,10 @@ export class NuevoEstudioComponent implements OnInit {
   salida: string = '';
   pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
-  constructor(private estudioService: EstudioService, private router: Router) { }
+  constructor(
+    private estudioService: EstudioService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -28,11 +32,19 @@ export class NuevoEstudioComponent implements OnInit {
     const estudio = new Estudio(this.id,this.nombre,this.logo,this.titulo,this.entrada,this.salida,this.pers);
     this.estudioService.crear(estudio).subscribe(
       data => {
-        alert('Estudio agregado');
+        Swal.fire({
+          title: 'OK',
+          text: 'Estudio agregado!',
+          icon: 'success'
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al agregar estudio. ' + err.message);
+        Swal.fire({
+          title: 'ERROR',
+          text: 'Error al agregar estudio: ' + err.message,
+          icon: 'error'
+        });
         this.router.navigate(['/']);
       }
     );

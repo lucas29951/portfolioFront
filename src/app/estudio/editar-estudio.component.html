@@ -1,43 +1,5 @@
 <app-header-empty></app-header-empty>
 
-<!-- <div class="container" *ngIf="estudio">
-    <div class="row mt-5">
-        <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre de la Institucion:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre"
-                    [(ngModel)]="estudio.nombre_institucion" required>
-                </div>
-                <div class="form-group">
-                    <label for="logo">Logo de la Institucion: (link)</label>
-                    <input type="text" class="form-control" id="logo" name="logo"
-                    [(ngModel)]="estudio.logo" required>
-                    <p>Vista Previa</p>
-                    <img src="{{estudio.logo}}" alt="vista previa foto" width="100">
-                </div>
-                <div class="form-group">
-                    <label for="titulo">Titulo:</label>
-                    <input type="text" class="form-control" id="titulo" name="titulo"
-                    [(ngModel)]="estudio.titulo" required>
-                </div>
-                <div class="form-group">
-                    <label for="entrada">Fecha de Entrada:</label>
-                    <input type="text" class="form-control" id="entrada" name="entrada"
-                    [(ngModel)]="estudio.fecha_entrada" required>
-                </div>
-                <div class="form-group">
-                    <label for="salida">Fecha de Salida:</label>
-                    <input type="text" class="form-control" id="salida" name="salida"
-                    [(ngModel)]="estudio.fecha_salida" required>
-                </div>
-                <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
-
 <div class="container mt-4">
     <div class="card mb-3">
         <div class="row g-0" *ngIf="estudio">
@@ -62,15 +24,11 @@
                         </div>
                         <div class="form-group">
                             <label for="entrada">Fecha de Entrada:</label>
-                            <!-- <input type="text" class="form-control" id="entrada" name="entrada"
-                                [(ngModel)]="estudio.fecha_entrada" required> -->
                             <input type="date" class="form-control" id="entrada" name="entrada"
                                 [(ngModel)]="estudio.fecha_entrada" required>
                         </div>
                         <div class="form-group">
                             <label for="salida">Fecha de Salida:</label>
-                            <!-- <input type="text" class="form-control" id="salida" name="salida"
-                                [(ngModel)]="estudio.fecha_salida" required> -->
                             <input type="date" class="form-group" id="salida" name="salida"
                                 [(ngModel)]="estudio.fecha_salida" required>
                         </div>

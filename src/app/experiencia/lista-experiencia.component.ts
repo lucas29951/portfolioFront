@@ -27,7 +27,6 @@ export class ListaExperienciaComponent implements OnInit {
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
     this.indice = 0;
-    //this.cargarExperiencias();
   }
   
   cargarExperiencias(): void {
@@ -44,8 +43,6 @@ export class ListaExperienciaComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.experienciaService.borrar(id).subscribe(
       data => {
-        //alert('Experiencia eliminada!');
-        //this.cargarExperiencias();
         this.exps.splice(index,1);
       },
       err => {

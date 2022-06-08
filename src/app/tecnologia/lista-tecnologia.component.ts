@@ -44,11 +44,6 @@ export class ListaTecnologiaComponent implements OnInit {
     this.tecnologiaService.borrar(id).subscribe(
       data => {
         this.tecnos.splice(index,1);
-        //alert('Tecnologia eliminada!');
-        //this.cargarTecnologias();
-        
-        /* this.router.navigateByUrl('/exit', { skipLocationChange: true });
-        this.router.navigate(['/']); */
       },
       err => {
         alert('Error al eliminar tecnologia. ' + err.message);

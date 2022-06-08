@@ -7,7 +7,6 @@
     align-items: center;
     height: 100px;
     padding: 0 20px;
-    /*border-radius: 10px;*/
 }
 
 .ficha-top img {
@@ -38,7 +37,6 @@
 }
 
 .menu {
-    /*background: #dc7a23;*/
     margin-left: 23%;
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +54,6 @@
 }
 
 .menu a:hover {
-    /*background: #ff912f;*/
     background: rgba(136, 83, 160, 0.3);
     border-radius: 8px;
 }

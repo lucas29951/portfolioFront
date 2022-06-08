@@ -22,8 +22,6 @@
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <!-- <button class="btn btn-primary" routerLink="/view-exp/{{experiencia.idExp}}"><i
-                                                class="fa-solid fa-eye"></i> Ver</button> -->
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#detailExpModal" (click)="vistaDetalle(experiencia.idExp)">
                                             <i class="fa-solid fa-eye"></i>
@@ -32,9 +30,6 @@
                                         <button class="btn btn-warning"
                                             routerLink="/modify-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                        <!-- <button class="btn btn-danger" (click)="borrar(experiencia.idExp)"><i
-                                                class="fa-solid fa-trash-can"></i>
-                                            Borrar</button> -->
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#confirmExpModal" (click)="confirmar(experiencia.idExp,i)">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -75,13 +70,7 @@
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
-                                        <!-- <div class="form-group">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
-                                                Enter
-                                            </button>
-                                        </div> -->
+                                        
                                     </div>
                                 </div>
                             </div>

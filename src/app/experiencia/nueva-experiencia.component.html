@@ -1,41 +1,5 @@
 <app-header-empty></app-header-empty>
 
-<!-- <div class="container">
-    <div class="row mt-3">
-        <div class="col-md-12">
-            <h2>Agregar Experiencia</h2>
-
-            <form (ngSubmit)="onCreate()" novalidated #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre del Puesto:</label>
-                    <input type="text" class="form-group" id="nombre" name="nombre" [(ngModel)]="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="lugar">Empresa:</label>
-                    <input type="text" class="form-group" id="lugar" name="lugar" [(ngModel)]="lugar" required>
-                </div>
-                <div class="form-group">
-                    <label for="logo">Logo de la Empresa: (link)</label>
-                    <input type="text" class="form-group" id="logo" name="logo" [(ngModel)]="logo" required>
-                </div>
-                <div class="form-group">
-                    <label for="inicio">Fecha de Inicio:</label>
-                    <input type="text" class="form-group" id="inicio" name="inicio" [(ngModel)]="inicio" required>
-                </div>
-                <div class="form-group">
-                    <label for="fin">Fecha de Finalizacion:</label>
-                    <input type="text" class="form-group" id="fin" name="fin" [(ngModel)]="fin" required>
-                </div>
-                <div class="form-group">
-                    <label for="desc">Descripcion:</label>
-                    <input type="text" class="form-group" id="desc" name="desc" [(ngModel)]="desc" required>
-                </div>
-                <button class="btn btn-success btn-block" [disabled]="!f.valid">Crear</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
 <div class="card mt-3">
     <div class="row g-0">
       <div class="col-md-8">
@@ -57,12 +21,10 @@
             </div>
             <div class="form-group">
                 <label for="inicio">Fecha de Inicio:</label>
-                <!-- <input type="text" class="form-group" id="inicio" name="inicio" [(ngModel)]="inicio" required> -->
                 <input type="date" class="form-group" id="inicio" name="inicio" [(ngModel)]="inicio" required>
             </div>
             <div class="form-group">
                 <label for="fin">Fecha de Finalizacion:</label>
-                <!-- <input type="text" class="form-group" id="fin" name="fin" [(ngModel)]="fin" required> -->
                 <input type="date" class="form-group" id="fin" name="fin" [(ngModel)]="fin" required>
             </div>
             <div class="form-group">

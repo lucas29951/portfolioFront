@@ -17,16 +17,11 @@
 
                                     </div>
                                 </td>
-                                <!-- <td *ngIf="uLogged!=''">
-                                    <button class="btn btn-primary" routerLink="/view-tecno/{{tecnologia.idTec}}"><i
-                                            class="fa-solid fa-eye"></i></button>
-                                </td> -->
                                 <td *ngIf="uLogged!=''">
                                     <button class="btn btn-warning" routerLink="/modify-tecno/{{tecnologia.idTec}}"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </td>
                                 <td *ngIf="uLogged!=''">
-                                    <!-- <button class="btn btn-danger" (click)="borrar(tecnologia.idTec,i)"><i class="fa-solid fa-trash-can"></i></button> -->
                                     <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#confirmTecModal" (click)="confirmar(tecnologia.idTec,i)">
                                         <i class="fa-solid fa-trash-can"></i>

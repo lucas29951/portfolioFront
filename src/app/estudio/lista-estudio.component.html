@@ -22,8 +22,6 @@
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
                                     <td *ngIf="uLogged!=''">
-                                        <!-- <button class="btn btn-primary" routerLink="/view-study/{{estudio.idEstudio}}"><i
-                                                class="fa-solid fa-eye"></i></button> -->
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#detailStudyModal"
                                             (click)="vistaDetalle(estudio.idEstudio)">
@@ -32,8 +30,6 @@
                                         <button class="btn btn-warning"
                                             routerLink="/modify-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                        <!-- <button class="btn btn-danger" (click)="borrar(estudio.idEstudio)"><i
-                                                class="fa-solid fa-trash-can"></i></button> -->
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#confirmEstuModal" (click)="confirmar(estudio.idEstudio,i)">
                                             <i class="fa-solid fa-trash-can"></i>
@@ -72,13 +68,7 @@
                                         </ul>
                                     </div>
                                     <div class="modal-footer">
-                                        <!-- <div class="form-group">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
-                                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">
-                                                Enter
-                                            </button>
-                                        </div> -->
+                                        
                                     </div>
                                 </div>
                             </div>

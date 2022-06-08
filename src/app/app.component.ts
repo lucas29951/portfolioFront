@@ -24,28 +24,7 @@ export class AppComponent implements OnInit{
     private persoService: PersonaService
   ) {}
 
-/*   login() {
-    console.log(this.username);
-    console.log(this.password);
-
-    const user = {username: this.username, password: this.password};
-
-    this.loginService.login(user).subscribe(
-      data => {
-        console.log(data);
-        if(data==null) this.loginError = 'Error!';
-        else{
-          this.loginError = '';
-          this.loginService.setToken(data.idUsuario);
-          this.uLogged = this.loginService.getUserLogged();
-          this.router.navigate(['/']);
-        }
-      }
-    );
-  } */
-
 ngOnInit(): void {
-  //this.uLogged = this.loginService.getUserLogged();
 }
 
 salir():void {

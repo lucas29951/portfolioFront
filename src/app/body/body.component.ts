@@ -19,7 +19,6 @@ export class BodyComponent implements OnInit {
     this.personaService.buscar(1).subscribe(
       data => {
         this.persona = data;
-        //this.personaService.setToken(data.idPersona.toString());
       },
       err => {
         alert("Error! " + err.message);

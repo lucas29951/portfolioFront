@@ -25,8 +25,6 @@ export class ListaProyectoComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    /* this.uLogged = this.loginService.getUserLogged();
-    console.log("uLogged: " + this.uLogged); */
     this.perso = this.persoService.getPersonStay();
     this.cargarProyectosDePersona();
   }
@@ -53,17 +51,6 @@ export class ListaProyectoComponent implements OnInit {
       }
     );
   }
-
-/*   cargarProyectos(): void {
-    this.proyectoService.listar().subscribe(
-      data => {
-        this.proyectos = data;
-      },
-      err => {
-        console.log(err);
-      }
-    );
-  } */
 
   borrar(id: number): void {
     this.proyectoService.borrar(id).subscribe(

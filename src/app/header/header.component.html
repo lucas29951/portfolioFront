@@ -10,52 +10,11 @@
         <a href="#projects">Proyectos</a>
         <a href="#estudios">Estudios</a>
         <a href="#contacto">Contacto</a>
-        <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-light" [routerLink]="['/log']" *ngIf="uLogged==''">
             Sign in
         </button> 
-        <!-- <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal" *ngIf="uLogged==''">
-            Sign in
-        </button> -->
         <button type="submit" class="btn btn-outline-light" [routerLink]="['/exit']" *ngIf="uLogged!=''">
             Sign out
         </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="loginModalLabel"><i class="fa-solid fa-right-to-bracket"></i>
-                            Login</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <div class="mb-3">
-                                <label for="username" class="col-form-label"><i class="fa-solid fa-user"></i>
-                                    Username:</label>
-                                <input type="text" class="form-control" id="username" [(ngModel)]="username">
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="col-form-label"><i class="fa-solid fa-lock"></i>
-                                    Password:</label>
-                                <input type="password" class="form-control" id="password" [(ngModel)]="password">
-                            </div>
-                            {{loginError}}
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <div class="form-group">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                            <button type="submit" class="btn btn-success" (click)="login()" data-bs-dismiss="modal">
-                                Enter
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </div>

@@ -24,7 +24,6 @@ export class DetallePersonaComponent implements OnInit {
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
-    //const id = this.activatedRoute.snapshot.params['id'];
     const id = 1;
     this.personaService.buscar(id).subscribe(
       data => {

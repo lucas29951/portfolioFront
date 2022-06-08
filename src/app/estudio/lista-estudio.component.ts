@@ -4,6 +4,7 @@ import { Estudio } from '../models/estudio';
 import { Persona } from '../models/persona';
 import { EstudioService } from '../service/estudio.service';
 import { LoginService } from '../service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-estudio',
@@ -27,7 +28,6 @@ export class ListaEstudioComponent implements OnInit {
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
     this.indice = 0;
-    //this.cargarEstudios();
   }
 
   cargarEstudios(): void {
@@ -44,8 +44,11 @@ export class ListaEstudioComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.estudioService.borrar(id).subscribe(
       data => {
-        //alert('Estudio eliminado!');
-        //this.cargarEstudios();
+        Swal.fire({
+          title: 'OK',
+          text: 'Estudio eliminado!',
+          icon: 'success'
+        });
         this.estus.splice(index,1);
       },
       err => {

@@ -1,42 +1,5 @@
 <app-header-empty></app-header-empty>
 
-<!-- <div class="container" *ngIf="persona">
-    <div class="row mt-5">
-        <div class="col-md-6 mx-auto">
-            <form (ngSubmit)="onUpdate()" novalidated #f="ngForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="persona.nombre"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="apellido">Apellido:</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido" [(ngModel)]="persona.apellido"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="profesion">Profesion:</label>
-                    <input type="text" class="form-control" id="profesion" name="profesion"
-                        [(ngModel)]="persona.profesion" required>
-                </div>
-                <div class="form-group">
-                    <label for="resumen">Resumen:</label>
-                    <input type="text" class="form-control" id="resumen" name="resumen" [(ngModel)]="persona.resumen"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label for="foto">Foto: (link)</label>
-                    <input type="text" class="form-control" id="foto" name="foto" [(ngModel)]="persona.foto" required>
-                    <p>Vista Previa</p>
-                    <img src="{{persona.foto}}" alt="vista previa foto" width="100">
-                </div>
-                <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>
-            </form>
-        </div>
-    </div>
-</div> -->
-
-
 <div class="container mt-4">
     <div class="card mb-3">
         <div class="row g-0" *ngIf="persona">
