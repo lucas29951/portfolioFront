@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { Proyecto } from '../models/proyecto';
 import { ProyectoService } from '../service/proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nuevo-proyecto',
@@ -28,11 +29,29 @@ export class NuevoProyectoComponent implements OnInit {
     const proyecto = new Proyecto(this.id,this.nombre,this.fecha,this.desc,this.enlace,this.imagen,this.pers);
     this.proyectoService.crear(proyecto).subscribe(
       data => {
-        alert('Proyecto agregado');
+        Swal.fire({
+          text: 'Proyecto agregado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al agregar proyecto. ' + err.message);
+        Swal.fire({
+          text: 'Error al agregar proyecto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

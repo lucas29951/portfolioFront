@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../service/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nuevo-usuario',
@@ -26,11 +27,29 @@ export class NuevoUsuarioComponent implements OnInit {
     const usuario = new Usuario(this.id,this.nombre,this.apellido,this.email,this.user,this.pass);
     this.usuarioService.crear(usuario).subscribe(
       data => {
-        alert('Usuario creado');
+        Swal.fire({
+          text: 'Usuario creado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al crear usuario. ' + err.message);
+        Swal.fire({
+          text: 'Error al crear usuario: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

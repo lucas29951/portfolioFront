@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { Proyecto } from '../models/proyecto';
 import { ProyectoService } from '../service/proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-proyecto',
@@ -26,7 +27,16 @@ export class EditarProyectoComponent implements OnInit {
         this.proyecto = data;
       },
       err => {
-        alert('Error al mostrar proyecto ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar proyecto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -36,11 +46,29 @@ export class EditarProyectoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.proyectoService.editar(id,this.proyecto).subscribe(
       data => {
-        alert('Proyecto actualizado!');
+        Swal.fire({
+          text: 'Proyecto actualizado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar proyecto. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar proyecto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

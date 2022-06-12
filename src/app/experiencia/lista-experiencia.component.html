@@ -10,6 +10,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>LOGO</th>
                                     <th>PUESTO</th>
                                     <th>EMPRESA</th>
                                     <th>FECHA</th>
@@ -18,6 +19,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let experiencia of exps; index as i">
+                                    <td><img src="{{experiencia.logo_empresa}}" alt="logo empresa" width="50"></td>
                                     <td>{{experiencia.nombre_puesto}}</td>
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>

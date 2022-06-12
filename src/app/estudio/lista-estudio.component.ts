@@ -45,14 +45,28 @@ export class ListaEstudioComponent implements OnInit {
     this.estudioService.borrar(id).subscribe(
       data => {
         Swal.fire({
-          title: 'OK',
           text: 'Estudio eliminado!',
-          icon: 'success'
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
         });
         this.estus.splice(index,1);
       },
       err => {
-        alert('Error al eliminar estudio. ' + err.message);
+        Swal.fire({
+          text: 'Error al eliminar estudio: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }

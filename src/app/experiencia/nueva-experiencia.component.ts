@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Experiencia } from '../models/experiencia';
 import { Persona } from '../models/persona';
 import { ExperienciaService } from '../service/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nueva-experiencia',
@@ -30,11 +31,29 @@ export class NuevaExperienciaComponent implements OnInit {
     new Experiencia(this.id,this.nombre,this.lugar,this.logo,this.inicio,this.fin,this.desc,this.pers);
     this.experienciaService.crear(experiencia).subscribe(
       data => {
-        alert('Experiencia agregada');
+        Swal.fire({
+          text: 'Experiencia agregada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al agregar experiencia. ' + err.message);
+        Swal.fire({
+          text: 'Error al agregar experiencia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

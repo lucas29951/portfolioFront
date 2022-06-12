@@ -9,9 +9,13 @@
     margin: 20px auto;
   }
   
+.carousel-caption {
+  background: #88a2d193;
+}
+
   img {
-    height: 350px;
-    padding: 0 350px;
+    height: 400px;
+    padding: 0 5%;
   }
   
   .btn {

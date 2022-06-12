@@ -4,6 +4,7 @@ import { Tecnologia } from '../models/tecnologia';
 import { TecnologiaService } from '../service/tecnologia.service';
 import { LoginService } from '../service/login.service';
 import { Persona } from '../models/persona';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-tecnologia',
@@ -43,10 +44,29 @@ export class ListaTecnologiaComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.tecnologiaService.borrar(id).subscribe(
       data => {
+        Swal.fire({
+          text: 'Tecnologia eliminada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.tecnos.splice(index,1);
       },
       err => {
-        alert('Error al eliminar tecnologia. ' + err.message);
+        Swal.fire({
+          text: 'Error al eliminar tecnologia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }

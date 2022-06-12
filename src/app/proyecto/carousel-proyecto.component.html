@@ -30,7 +30,9 @@
                   </div>
                 </div>
                 <div class="carousel-item" *ngFor="let proyecto of pros">
-                  <img src="https://i.gyazo.com/2fcf1f93e5739cd0a414d589f9f3f6af.png" class="d-block w-100"
+                  <!-- <img src="https://i.gyazo.com/2fcf1f93e5739cd0a414d589f9f3f6af.png" class="d-block w-100"
+                    alt="proyecto"> -->
+                    <img src="{{proyecto.imagen_demo}}" class="d-block w-100"
                     alt="proyecto">
                   <div class="carousel-caption d-none d-md-block">
                     <h5>{{ proyecto.nombre_proyecto }}</h5>

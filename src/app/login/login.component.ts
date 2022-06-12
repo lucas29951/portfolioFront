@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,18 @@ export class LoginComponent implements OnInit {
     this.loginService.login(user).subscribe(
       data => {
         console.log(data);
-        if(data==null) this.loginError = 'Error!';
+        if(data==null){
+          Swal.fire({
+            title: '¡ERROR!',
+            text: 'Usuario y/o contraseña incorrectos.',
+            icon: 'error',
+            background: '#4a5e83',
+            color: '#ddd',
+            width: 300,
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
         else{
           this.loginError = '';
           this.loginService.setToken(data.idUsuario);

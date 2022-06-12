@@ -4,6 +4,7 @@ import { Proyecto } from '../models/proyecto';
 import { ProyectoService } from '../service/proyecto.service';
 import { LoginService } from '../service/login.service';
 import { PersonaService } from '../service/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-proyecto',
@@ -55,11 +56,29 @@ export class ListaProyectoComponent implements OnInit {
   borrar(id: number): void {
     this.proyectoService.borrar(id).subscribe(
       data => {
-        alert('Proyecto eliminado!');
+        Swal.fire({
+          text: 'Proyecto eliminado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.cargarProyectosDePersona();
       },
       err => {
-        alert('Error al eliminar proyecto. ' + err.message);
+        Swal.fire({
+          text: 'Error al eliminar proyecto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }

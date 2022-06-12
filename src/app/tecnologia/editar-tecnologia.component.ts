@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { Tecnologia } from '../models/tecnologia';
 import { TecnologiaService } from '../service/tecnologia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-tecnologia',
@@ -28,7 +29,16 @@ export class EditarTecnologiaComponent implements OnInit {
         console.log(this.tecnologia);
       },
       err => {
-        alert('Error al mostrar tecnologia ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar tecnologia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -39,11 +49,29 @@ export class EditarTecnologiaComponent implements OnInit {
     console.log(id);
     this.tecnologiaService.editar(id,this.tecnologia).subscribe(
       data => {
-        alert('Tecnologia actualizada!');
+        Swal.fire({
+          text: 'Tecnologia actualizada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar tecnologia. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar tecnologia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

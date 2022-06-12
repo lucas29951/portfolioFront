@@ -1,9 +1,4 @@
-<div class="ficha-top" id="home">
-    <div class="name">
-        <img src="https://i.gyazo.com/1010a883a784d04f571f7889f3200904.png" width="282" alt="perfil" />
-        <div>Argentina Programa<span>#YoProgramo</span></div>
-    </div>
-</div>
+<app-header-empty></app-header-empty>
 
 <div class="container">
     <h2>Lista de Proyectos <button class="btn btn-primary" (click)="volver()"><i
@@ -13,6 +8,7 @@
         <table>
             <thead>
                 <tr>
+                    <th>IMAGEN DEMOSTRATIVA</th>
                     <th>NOMBRE DEL PROYECTO</th>
                     <th>FECHA DE REALIZACION</th>
                     <th>DESCRIPCION</th>
@@ -21,6 +17,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let proyecto of proyectos">
+                    <td><img src="{{proyecto.imagen_demo}}" alt="imagen demostrativa" width="50"></td>
                     <td>{{proyecto.nombre_proyecto}}</td>
                     <td>{{proyecto.fecha_realizacion}}</td>
                     <td>{{proyecto.descripcion}}</td>

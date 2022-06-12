@@ -33,17 +33,27 @@ export class NuevoEstudioComponent implements OnInit {
     this.estudioService.crear(estudio).subscribe(
       data => {
         Swal.fire({
-          title: 'OK',
           text: 'Estudio agregado!',
-          icon: 'success'
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
         });
         this.router.navigate(['/']);
       },
       err => {
         Swal.fire({
-          title: 'ERROR',
           text: 'Error al agregar estudio: ' + err.message,
-          icon: 'error'
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
         });
         this.router.navigate(['/']);
       }

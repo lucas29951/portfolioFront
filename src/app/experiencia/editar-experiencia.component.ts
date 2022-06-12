@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from '../models/experiencia';
 import { Persona } from '../models/persona';
 import { ExperienciaService } from '../service/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-experiencia',
@@ -26,7 +27,16 @@ export class EditarExperienciaComponent implements OnInit {
         this.experiencia = data;
       },
       err => {
-        alert('Error al mostrar experiencia ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar experiencia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -36,11 +46,29 @@ export class EditarExperienciaComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.experienciaService.editar(id,this.experiencia).subscribe(
       data => {
-        alert('Experiencia actualizada!');
+        Swal.fire({
+          text: 'Experiencia actualizada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar experiencia. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar experiencia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

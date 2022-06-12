@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../service/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-usuario',
@@ -25,7 +26,16 @@ export class EditarUsuarioComponent implements OnInit {
         this.usuario = data;
       },
       err => {
-        alert('Error al mostrar usuario ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar usuario: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -35,11 +45,29 @@ export class EditarUsuarioComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.usuarioService.editar(id,this.usuario).subscribe(
       data => {
-        alert('Usuario actualizado!');
+        Swal.fire({
+          text: 'Usuario actualizado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar usuario. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar usuario: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

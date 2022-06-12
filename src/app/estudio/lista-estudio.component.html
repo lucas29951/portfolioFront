@@ -10,6 +10,7 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>LOGO</th>
                                     <th>TITULO</th>
                                     <th>INSTITUCION</th>
                                     <th>PERIODO</th>
@@ -18,6 +19,7 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let estudio of estus; index as i">
+                                    <td><img src="{{estudio.logo}}" alt="logo" width="50"></td>
                                     <td>{{estudio.titulo}}</td>
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { PersonaService } from '../service/persona.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-persona',
@@ -25,7 +26,16 @@ export class EditarPersonaComponent implements OnInit {
         this.persona = data;
       },
       err => {
-        alert('Error al mostrar persona ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar persona: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -35,11 +45,29 @@ export class EditarPersonaComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.personaService.editar(id,this.persona).subscribe(
       data => {
-        alert('Persona actualizada!');
+        Swal.fire({
+          text: 'Persona actualizada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar persona. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar persona: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Persona } from '../models/persona';
 import { Tecnologia } from '../models/tecnologia';
 import { TecnologiaService } from '../service/tecnologia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-nueva-tecnologia',
@@ -25,11 +26,29 @@ export class NuevaTecnologiaComponent implements OnInit {
     const tecnologia = new Tecnologia(this.id,this.nombre,this.nivel,this.pers);
     this.tecnologiaService.crear(tecnologia).subscribe(
       data => {
-        alert('Tecnologia agregada');
+        Swal.fire({
+          text: 'Tecnologia agregada!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al agregar tecnologia. ' + err.message);
+        Swal.fire({
+          text: 'Error al agregar tecnologia: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );

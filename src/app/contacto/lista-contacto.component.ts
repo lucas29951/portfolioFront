@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Contacto } from '../models/contacto';
 import { ContactoService } from '../service/contacto.service';
 import { LoginService } from '../service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-contacto',
@@ -39,11 +40,29 @@ export class ListaContactoComponent implements OnInit {
   borrar(id: number): void {
     this.contactoService.borrar(id).subscribe(
       data => {
-        alert('Contacto eliminado!');
+        Swal.fire({
+          text: 'Contacto eliminado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.cargarContactos();
       },
       err => {
-        alert('Error al eliminar contacto. ' + err.message);
+        Swal.fire({
+          text: 'Error al eliminar contacto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }

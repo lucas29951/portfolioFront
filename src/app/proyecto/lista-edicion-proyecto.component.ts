@@ -5,6 +5,7 @@ import { ProyectoService } from '../service/proyecto.service';
 import { LoginService } from '../service/login.service';
 import { PersonaService } from '../service/persona.service';
 import { Persona } from '../models/persona';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-lista-edicion-proyecto',
@@ -50,10 +51,29 @@ export class ListaEdicionProyectoComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.proyectoService.borrar(id).subscribe(
       data => {
+        Swal.fire({
+          text: 'Proyecto eliminado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.proyectos.splice(index,1);
       },
       err => {
-        alert('Error al eliminar proyecto. ' + err.message);
+        Swal.fire({
+          text: 'Error al eliminar proyecto:' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }
@@ -85,4 +105,5 @@ confirmar(id: number,index: number):void {
 volver():void {
   this.router.navigate(['/']);
 }
+
 }

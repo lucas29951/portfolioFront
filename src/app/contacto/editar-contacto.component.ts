@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Contacto } from '../models/contacto';
 import { Persona } from '../models/persona';
 import { ContactoService } from '../service/contacto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-editar-contacto',
@@ -26,7 +27,16 @@ export class EditarContactoComponent implements OnInit {
         this.contacto = data;
       },
       err => {
-        alert('Error al mostrar contacto ' + id + '. ' + err.message);
+        Swal.fire({
+          text: 'Error al cargar contacto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
@@ -36,11 +46,29 @@ export class EditarContactoComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params['id'];
     this.contactoService.editar(id,this.contacto).subscribe(
       data => {
-        alert('Contacto actualizado!');
+        Swal.fire({
+          text: 'Contacto actualizado!',
+          icon: 'success',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       },
       err => {
-        alert('Error al actualizar contacto. ' + err.message);
+        Swal.fire({
+          text: 'Error al actualizar contacto: ' + err.message,
+          icon: 'error',
+          position: 'top-end',
+          background: '#4a5e83',
+          color: '#ddd',
+          width: 300,
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.router.navigate(['/']);
       }
     );
