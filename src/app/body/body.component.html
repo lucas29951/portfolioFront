@@ -31,24 +31,24 @@
 </section>
 
 <section id="about" *ngIf="isLogged">
-    <app-detalle-persona [perso]="persona" [permis]="isAdmin"></app-detalle-persona>
+    <app-detalle-persona [perso]="persona"></app-detalle-persona>
 </section>
 
 <section id="skills" *ngIf="isLogged">
-    <app-lista-tecnologia [tecnos]="persona.tecnologias" [permis]="isAdmin"></app-lista-tecnologia>
+    <app-lista-tecnologia [tecnos]="persona.tecnologias"></app-lista-tecnologia>
 </section>
 
 <section id="exps" *ngIf="isLogged">
-    <app-lista-experiencia [exps]="persona.experiencias" [permis]="isAdmin"></app-lista-experiencia>
+    <app-lista-experiencia [exps]="persona.experiencias"></app-lista-experiencia>
 </section>
 
 <section id="projects" *ngIf="isLogged">
-    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos" [permis]="isAdmin"></app-carousel-proyecto>
+    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos"></app-carousel-proyecto>
 </section>
 
 <section id="estudios" *ngIf="isLogged">
-    <app-lista-estudio [estus]="persona.estudios" [permis]="isAdmin"></app-lista-estudio>
+    <app-lista-estudio [estus]="persona.estudios"></app-lista-estudio>
 </section>
 
-<app-footer [conts]="persona.contactos" [permis]="isAdmin" *ngIf="isLogged"></app-footer>
+<app-footer [conts]="persona.contactos" *ngIf="isLogged"></app-footer>
 
