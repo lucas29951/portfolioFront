@@ -8,7 +8,7 @@ import { Contacto } from '../models/contacto';
 })
 export class ContactoService {
 
-  contactoURL = 'http://localhost:8080/api/contact/';
+  contactoURL = 'https://apportfolioback.herokuapp.com/api/contact/';
 
   constructor(private httpClient: HttpClient) { }
 

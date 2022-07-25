@@ -13,6 +13,7 @@ export class ListaContactoComponent implements OnInit {
 
   @Input() permis: boolean = false;
   contactos: Contacto[] = [];
+  existCont = false;
 
   constructor(
     private contactoService: ContactoService,
@@ -21,6 +22,7 @@ export class ListaContactoComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarContactos();
+    this.existenContactos();
   }
 
   cargarContactos(): void {
@@ -40,6 +42,22 @@ export class ListaContactoComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         });
+      }
+    );
+  }
+
+  existenContactos(): void {
+    this.contactoService.listar().subscribe(
+      data => {
+        this.contactos = data;
+        if(this.contactos.length != 0){
+          this.existCont = true;
+        }else{
+          this.existCont = false;
+        }
+      },
+      err => {
+        console.log(err.message);
       }
     );
   }

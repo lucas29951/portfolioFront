@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
-  usuarioURL = 'http://localhost:8080/api/user/';
+  usuarioURL = 'https://apportfolioback.herokuapp.com/api/user/';
 
   constructor(private cookies: CookieService, private httpClient: HttpClient) { }
 

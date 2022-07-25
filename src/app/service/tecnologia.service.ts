@@ -8,7 +8,7 @@ import { Tecnologia } from '../models/tecnologia';
 })
 export class TecnologiaService {
 
-  tecnoURL = 'http://localhost:8080/api/technology/';
+  tecnoURL = 'https://apportfolioback.herokuapp.com/api/technology/';
 
   constructor(private httpClient: HttpClient) { }
 
