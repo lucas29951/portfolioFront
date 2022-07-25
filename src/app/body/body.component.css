@@ -4,3 +4,39 @@
     height: 280px;
     padding: 8px 0;
 }
+
+.col {
+    background: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    color: #ddd;
+    border-radius: 10px;
+}
+
+p {
+    margin-top: 10px;
+    color: #fff;
+}
+
+table {
+    width: 50%;
+}
+
+i {
+    color: rgb(195, 193, 209);
+}
+
+i:hover {
+    color: rgb(99, 156, 230);
+}
+
+.container {
+    margin-top: 50px;
+}
+
+a {
+    color: #ddd;
+}
+
+a:hover {
+    color:rgb(99, 156, 230);
+}

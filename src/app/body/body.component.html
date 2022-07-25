@@ -1,28 +1,54 @@
 
 <app-header></app-header>
 
-<div class="banner">
+<div class="banner" *ngIf="isLogged">
     <img src="https://i.gyazo.com/3f23dfe22145e88bbe481f86dc6e8d6c.png" width="100%" alt="banner" />
 </div>
 
-<section id="about">
-    <app-detalle-persona [perso]="persona"></app-detalle-persona>
+<section id="welcome" *ngIf="!isLogged">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-md-12">
+                <div class="row g-0 overflow-hidden flex-md-row mb-4 h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-info">Portfolio Web</strong>
+                        <h3 class="mb-0">Te damos la bienvenida!</h3>
+                        <p class="card-text mb-auto">Inicia sesión para ver toda la información o registrate si aun no tienes un usuario.</p>
+                        <br>
+                        <a href="https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa">
+                            <strong>Conoce más sobre Argentina Programa</strong>
+                        </a>
+                    </div>
+                    
+                    <div class="col-auto d-none d-lg-block">
+                        <app-login></app-login>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section id="skills">
-    <app-lista-tecnologia [tecnos]="persona.tecnologias"></app-lista-tecnologia>
+<section id="about" *ngIf="isLogged">
+    <app-detalle-persona [perso]="persona" [permis]="isAdmin"></app-detalle-persona>
 </section>
 
-<section id="exps">
-    <app-lista-experiencia [exps]="persona.experiencias"></app-lista-experiencia>
+<section id="skills" *ngIf="isLogged">
+    <app-lista-tecnologia [tecnos]="persona.tecnologias" [permis]="isAdmin"></app-lista-tecnologia>
 </section>
 
-<section id="projects">
-    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos"></app-carousel-proyecto>
+<section id="exps" *ngIf="isLogged">
+    <app-lista-experiencia [exps]="persona.experiencias" [permis]="isAdmin"></app-lista-experiencia>
 </section>
 
-<section id="estudios">
-    <app-lista-estudio [estus]="persona.estudios"></app-lista-estudio>
+<section id="projects" *ngIf="isLogged">
+    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos" [permis]="isAdmin"></app-carousel-proyecto>
 </section>
 
-<app-footer [conts]="persona.contactos"></app-footer>
+<section id="estudios" *ngIf="isLogged">
+    <app-lista-estudio [estus]="persona.estudios" [permis]="isAdmin"></app-lista-estudio>
+</section>
+
+<app-footer [conts]="persona.contactos" [permis]="isAdmin" *ngIf="isLogged"></app-footer>
+
