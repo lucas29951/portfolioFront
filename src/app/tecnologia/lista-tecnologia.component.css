@@ -72,3 +72,14 @@ h4 {
 .modal-footer .btn {
     margin-right: 20px;
 }
+
+.text-center {
+    padding: 20px;
+    background: #4a5e83;
+    border-bottom: 5px solid #2a3d64;
+}
+
+.text-center h6 {
+    font-weight: bold;
+    color: #fff;
+}

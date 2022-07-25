@@ -17,7 +17,10 @@ export class NuevaTecnologiaComponent implements OnInit {
   nivel: number = 0;
   pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
-  constructor(private tecnologiaService: TecnologiaService, private router: Router) { }
+  constructor(
+    private tecnologiaService: TecnologiaService, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -29,8 +32,9 @@ export class NuevaTecnologiaComponent implements OnInit {
         Swal.fire({
           text: 'Tecnologia agregada!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#45cd63',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -42,8 +46,9 @@ export class NuevaTecnologiaComponent implements OnInit {
         Swal.fire({
           text: 'Error al agregar tecnologia: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: 'c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,

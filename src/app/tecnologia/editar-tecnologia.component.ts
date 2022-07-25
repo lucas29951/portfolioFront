@@ -22,18 +22,17 @@ export class EditarTecnologiaComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    console.log(id);
     this.tecnologiaService.buscar(id).subscribe(
       data => {
         this.tecnologia = data;
-        console.log(this.tecnologia);
       },
       err => {
         Swal.fire({
           text: 'Error al cargar tecnologia: ' + err.message,
           icon: 'error',
-          position: 'top-end',
-          background: '#4a5e83',
+          iconColor: '#ddd',
+          position: 'top',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -46,14 +45,14 @@ export class EditarTecnologiaComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params['id'];
-    console.log(id);
     this.tecnologiaService.editar(id,this.tecnologia).subscribe(
       data => {
         Swal.fire({
           text: 'Tecnologia actualizada!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#4fa3f7',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -65,8 +64,9 @@ export class EditarTecnologiaComponent implements OnInit {
         Swal.fire({
           text: 'Error al actualizar tecnologia: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -75,7 +75,6 @@ export class EditarTecnologiaComponent implements OnInit {
         this.router.navigate(['/']);
       }
     );
-    console.log(this.tecnologia);
   }
 
   volver():void {

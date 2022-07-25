@@ -14,29 +14,34 @@ import Swal from 'sweetalert2';
 export class ListaTecnologiaComponent implements OnInit {
 
   @Input() tecnos: Tecnologia[] = [];
+  @Input() permis: boolean = false;
   tecnologias: Tecnologia[] = [];
-  tecnologia: Tecnologia = new Tecnologia(0, '', 0, new Persona(1, '', '', '', '', '', [], [], [], [], []));
+  tecnologia: Tecnologia = new Tecnologia(0,'',0,new Persona(1,'','','','','',[],[],[],[],[]));
   indice: number = 0;
-  uLogged: string = '';
+  existTec = false;
 
   constructor(
-    private tecnologiaService: TecnologiaService,
-    private router: Router,
-    private loginService: LoginService
-  ) { }
+    private tecnologiaService: TecnologiaService, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
-    this.uLogged = this.loginService.getUserLogged();
     this.indice = 0;
+    this.existenTecnologias();
   }
 
-  cargarTecnologias(): void {
+  existenTecnologias(): void {
     this.tecnologiaService.listar().subscribe(
       data => {
         this.tecnologias = data;
+        if(this.tecnologias.length != 0){
+          this.existTec = true;
+        }else{
+          this.existTec = false;
+        }
       },
       err => {
-        console.log(err);
+        console.log(err.message);
       }
     );
   }
@@ -44,24 +49,25 @@ export class ListaTecnologiaComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.tecnologiaService.borrar(id).subscribe(
       data => {
-        /* Swal.fire({
+        Swal.fire({
           text: 'Tecnologia eliminada!',
           icon: 'success',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#4a5383',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
           timer: 1500
-        }); */
-        this.tecnos.splice(index, 1);
+        });
+        this.tecnos.splice(index,1);
       },
       err => {
         Swal.fire({
           text: 'Error al eliminar tecnologia: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: 'c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -71,64 +77,16 @@ export class ListaTecnologiaComponent implements OnInit {
     );
   }
 
-  /*   confirmar(id: number,index: number):void {
-      this.tecnologiaService.buscar(id).subscribe(
-        data => {
-          this.tecnologia = data;
-          this.indice = index;
-          console.log(this.indice);
-        },
-        err => {
-          alert('Error!' + err.message);
-        }
-      )
-  } */
-
-  confirmar(id: number, index: number): void {
+  confirmar(id: number,index: number):void {
     this.tecnologiaService.buscar(id).subscribe(
       data => {
         this.tecnologia = data;
         this.indice = index;
-
-        Swal.fire({
-          title: 'Estas seguro?',
-          text: "No podras revertir esta accion!",
-          icon: 'question',
-          background: '#4a5e83',
-          color: '#ddd',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Confirmar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            Swal.fire({
-              text: 'Tecnologia eliminada!',
-              icon: 'success',
-              background: '#29d337',
-              color: '#ddd',
-              width: 300,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 1500
-            })
-            this.borrar(this.tecnologia.idTec, this.indice);
-          }
-        });
       },
       err => {
-        alert('Error!' + err.message);
+        console.log('Error!' + err.message);
       }
     )
-  }
-
-  salir(): void {
-    this.loginService.deleteToken();
-    this.uLogged = '';
-  }
-
-  loggearse(): void {
-    this.router.navigate(['/login']);
-  }
+}
 
 }
