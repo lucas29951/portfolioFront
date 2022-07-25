@@ -47,7 +47,7 @@
 </section>
 
 <section id="estudios" *ngIf="isLogged">
-    <app-lista-estudio [estus]="persona.estudios"></app-lista-estudio>
+    <app-lista-estudio [estus]="persona.estudios" [permis]="isAdmin"></app-lista-estudio>
 </section>
 
 <app-footer [conts]="persona.contactos" *ngIf="isLogged"></app-footer>

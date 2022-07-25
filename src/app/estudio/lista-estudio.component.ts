@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Estudio } from '../models/estudio';
 import { Persona } from '../models/persona';
 import { EstudioService } from '../service/estudio.service';
-import { LoginService } from '../service/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,29 +13,34 @@ import Swal from 'sweetalert2';
 export class ListaEstudioComponent implements OnInit {
 
   @Input() estus: Estudio[] = [];
+  @Input() permis: boolean = false;
   estudios: Estudio[] = [];
   estudio: Estudio = new Estudio(0,'','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
   indice: number = 0;
-  uLogged: string = '';
+  existEstus = false;
 
   constructor(
     private estudioService: EstudioService, 
     private router: Router,
-    private loginService: LoginService
     ) { }
 
   ngOnInit(): void {
-    this.uLogged = this.loginService.getUserLogged();
     this.indice = 0;
+    this.existenEstudios();
   }
 
-  cargarEstudios(): void {
+  existenEstudios(): void {
     this.estudioService.listar().subscribe(
       data => {
         this.estudios = data;
+        if(this.estudios.length != 0){
+          this.existEstus = true;
+        }else{
+          this.existEstus = false;
+        }
       },
       err => {
-        console.log(err);
+        console.log(err.message);
       }
     );
   }
@@ -60,8 +64,9 @@ export class ListaEstudioComponent implements OnInit {
         Swal.fire({
           text: 'Error al eliminar estudio: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -77,7 +82,7 @@ export class ListaEstudioComponent implements OnInit {
         this.estudio = data;
       },
       err => {
-        alert('Error!' + err.message);
+        console.log('Error!' + err.message);
       }
     )
 }
@@ -87,21 +92,11 @@ confirmar(id: number,index: number):void {
     data => {
       this.estudio = data;
       this.indice = index;
-      console.log(this.indice);
     },
     err => {
-      alert('Error!' + err.message);
+      console.log('Error!' + err.message);
     }
   )
-}
-
-salir():void {
-  this.loginService.deleteToken();
-  this.uLogged = '';
-}
-
-loggearse():void {
-  this.router.navigate(['/login']);
 }
 
 }

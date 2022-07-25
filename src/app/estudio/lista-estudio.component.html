@@ -3,18 +3,25 @@
         <div class="col-md-12">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h2>Estudios <button class="btn btn-success" routerLink="/add-study" *ngIf="uLogged!=''"><i
+                    <h2>Estudios <button class="btn btn-success" routerLink="/add-study" *ngIf="permis"><i
                                 class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
                     <div class="main-container">
-                        <table>
+                        <table *ngIf="!existEstus">
+                            <thead>
+                                <tr>
+                                    <th>AUN NO HAY ESTUDIOS CARGADOS!</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <table *ngIf="existEstus">
                             <thead>
                                 <tr>
                                     <th>LOGO</th>
                                     <th>TITULO</th>
                                     <th>INSTITUCION</th>
                                     <th>PERIODO</th>
-                                    <th *ngIf="uLogged!=''">OPCIONES</th>
+                                    <th>OPCIONES</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -23,16 +30,16 @@
                                     <td>{{estudio.titulo}}</td>
                                     <td>{{estudio.nombre_institucion}}</td>
                                     <td>{{estudio.fecha_entrada}} - {{estudio.fecha_salida}}</td>
-                                    <td *ngIf="uLogged!=''">
+                                    <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#detailStudyModal"
                                             (click)="vistaDetalle(estudio.idEstudio)">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
-                                        <button class="btn btn-warning"
+                                        <button *ngIf="permis" class="btn btn-warning"
                                             routerLink="/modify-study/{{estudio.idEstudio}}"><i
                                                 class="fa-solid fa-pen-to-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button type="button" *ngIf="permis" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#confirmEstuModal" (click)="confirmar(estudio.idEstudio,i)">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>

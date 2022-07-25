@@ -30,8 +30,9 @@ export class EditarEstudioComponent implements OnInit {
         Swal.fire({
           text: 'Error al cargar estudio: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -49,8 +50,9 @@ export class EditarEstudioComponent implements OnInit {
         Swal.fire({
           text: 'Estudio actualizado!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#4fa3f7',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -62,8 +64,9 @@ export class EditarEstudioComponent implements OnInit {
         Swal.fire({
           text: 'Error al actualizar estudio: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
