@@ -5,7 +5,8 @@
         <div class="row g-0" *ngIf="persona">
             <div class="col-md-3">
                 <h5><i class="fa-solid fa-image"></i> Vista Previa</h5>
-                <img src="{{persona.foto}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+                <img *ngIf="persona.foto!=''" src="{{persona.foto}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+                <img *ngIf="persona.foto==''" src="https://i.gyazo.com/5b8bdd13b697c6b01cecd43ad8778582.png" class="img-fluid rounded-start" alt="vista previa foto" width="200">
             </div>
             <div class="col-md-9">
                 <div class="card-body">
@@ -35,8 +36,6 @@
                             <label for="foto">Foto: (link)</label>
                             <input type="text" class="form-control" id="foto" name="foto" [(ngModel)]="persona.foto"
                                 required>
-                            <!-- <input type="file" class="form-control" id="foto" name="foto" [(ngModel)]="persona.foto"
-                                required> -->
                         </div>
                         <br>
                         <button class="btn btn-success btn-block" [disabled]="!f.valid">Actualizar datos</button>

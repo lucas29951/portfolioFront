@@ -29,8 +29,9 @@ export class EditarPersonaComponent implements OnInit {
         Swal.fire({
           text: 'Error al cargar persona: ' + err.message,
           icon: 'error',
-          position: 'top-end',
-          background: '#4a5e83',
+          iconColor: '#ddd',
+          position: 'top',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -48,8 +49,9 @@ export class EditarPersonaComponent implements OnInit {
         Swal.fire({
           text: 'Persona actualizada!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#4fa3f7',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -61,8 +63,9 @@ export class EditarPersonaComponent implements OnInit {
         Swal.fire({
           text: 'Error al actualizar persona: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,

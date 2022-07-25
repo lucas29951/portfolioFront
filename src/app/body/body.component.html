@@ -31,7 +31,7 @@
 </section>
 
 <section id="about" *ngIf="isLogged">
-    <app-detalle-persona [perso]="persona"></app-detalle-persona>
+    <app-detalle-persona [perso]="persona" [permis]="isAdmin"></app-detalle-persona>
 </section>
 
 <section id="skills" *ngIf="isLogged">
