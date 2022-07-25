@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from './service/login.service';
-import { PersonaService } from './service/persona.service';
 
 @Component({
   selector: 'app-root',
@@ -11,25 +8,10 @@ import { PersonaService } from './service/persona.service';
 export class AppComponent implements OnInit{
   title = 'portfolioFront';
 
-  username: string = '';
-  password: string = '';
-  loginError: string = '';
-  uLogged: string = '';
-  perso: string = '';
-
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private loginService: LoginService,
-    private persoService: PersonaService
-  ) {}
+  constructor() {}
 
 ngOnInit(): void {
 }
 
-salir():void {
-  this.loginService.deleteToken();
-  this.uLogged = '';
-}
 }
 

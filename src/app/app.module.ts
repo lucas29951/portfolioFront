@@ -32,7 +32,6 @@ import { ListaTecnologiaComponent } from './tecnologia/lista-tecnologia.componen
 import { NuevaTecnologiaComponent } from './tecnologia/nueva-tecnologia.component';
 import { EditarTecnologiaComponent } from './tecnologia/editar-tecnologia.component';
 
-import { NuevoUsuarioComponent } from './usuario/nuevo-usuario.component';
 import { EditarUsuarioComponent } from './usuario/editar-usuario.component';
 
 import { DetallePersonaComponent } from './persona/detalle-persona.component';
@@ -42,24 +41,23 @@ import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { CarouselProyectoComponent } from './proyecto/carousel-proyecto.component';
-import { ExitComponent } from './exit/exit.component';
 import { ListaEdicionProyectoComponent } from './proyecto/lista-edicion-proyecto.component';
 import { HeaderEmptyComponent } from './header/header-empty.component';
 import { RegistroComponent } from './registro/registro.component';
+import { interceptorProvider } from './interceptors/pers-interceptor.service';
 
 const routes: Routes = [
   /* -----  Ruta de Inicio  ----- */
   { path: '', component: BodyComponent },
   /* -----  Ruta de Login  ----- */
   { path: 'log', component: LoginComponent },
-  { path: 'exit', component: ExitComponent },
+  { path: 'register', component: RegistroComponent },
   /* -----  Rutas de Agregacion de elementos  ----- */
   { path: 'add-contact', component: NuevoContactoComponent },
   { path: 'add-study', component: NuevoEstudioComponent },
   { path: 'add-exp', component: NuevaExperienciaComponent },
   { path: 'add-project', component: NuevoProyectoComponent },
   { path: 'add-tecno', component: NuevaTecnologiaComponent },
-  { path: 'add-user', component: NuevoUsuarioComponent },
   /* -----  Rutas de Edicion de elementos  ----- */
   { path: 'modify-contact/:id', component: EditarContactoComponent },
   { path: 'modify-study/:id', component: EditarEstudioComponent },
@@ -95,7 +93,6 @@ const routes: Routes = [
     ListaTecnologiaComponent,
     NuevaTecnologiaComponent,
     EditarTecnologiaComponent,
-    NuevoUsuarioComponent,
     EditarUsuarioComponent,
     DetallePersonaComponent,
     HeaderComponent,
@@ -103,7 +100,6 @@ const routes: Routes = [
     FooterComponent,
     LoginComponent,
     CarouselProyectoComponent,
-    ExitComponent,
     ListaEdicionProyectoComponent,
     HeaderEmptyComponent,
     RegistroComponent
@@ -115,7 +111,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})
   ],
   exports: [RouterModule],
-  providers: [CookieService],
+  providers: [CookieService,interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
