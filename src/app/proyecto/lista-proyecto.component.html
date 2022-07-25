@@ -5,7 +5,14 @@
                 class="fa-solid fa-circle-arrow-left"></i> Volver</button></h2>
 
     <div class="main-container">
-        <table>
+        <table *ngIf="!existProy">
+            <thead>
+                <tr>
+                    <th>AUN NO HAY PROYECTOS CARGADOS!</th>
+                </tr>
+            </thead>
+        </table>
+        <table *ngIf="existProy">
             <thead>
                 <tr>
                     <th>IMAGEN DEMOSTRATIVA</th>

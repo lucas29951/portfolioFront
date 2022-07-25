@@ -20,9 +20,13 @@ export class NuevoProyectoComponent implements OnInit {
   imagen: string = '';
   pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
-  constructor(private proyectoService: ProyectoService, private router: Router) { }
+  constructor(
+    private proyectoService: ProyectoService, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
+
   }
 
   onCreate(): void {
@@ -32,8 +36,9 @@ export class NuevoProyectoComponent implements OnInit {
         Swal.fire({
           text: 'Proyecto agregado!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#45cd63',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -45,8 +50,9 @@ export class NuevoProyectoComponent implements OnInit {
         Swal.fire({
           text: 'Error al agregar proyecto: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,

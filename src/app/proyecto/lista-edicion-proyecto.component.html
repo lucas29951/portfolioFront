@@ -8,7 +8,14 @@
     </h2>
 
     <div class="main-container">
-        <table>
+        <table *ngIf="!existProy">
+            <thead>
+                <tr>
+                    <th>AUN NO HAY PROYECTOS CARGADOS!</th>
+                </tr>
+            </thead>
+        </table>
+        <table *ngIf="existProy">
             <thead>
                 <tr>
                     <th>IMAGEN DEMOSTRATIVA</th>
@@ -26,7 +33,7 @@
                     <td>{{proyecto.fecha_realizacion}}</td>
                     <td>{{proyecto.descripcion}}</td>
                     <td><a href="{{proyecto.enlace_proyecto}}" target="_blank">{{proyecto.enlace_proyecto}}</a></td>
-                    <td *ngIf="uLogged!=''">
+                    <td>
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#detailProjectModal" (click)="vistaDetalle(proyecto.idProyecto)">
                             <i class="fa-solid fa-eye"></i>
