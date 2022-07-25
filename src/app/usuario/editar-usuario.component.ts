@@ -29,8 +29,9 @@ export class EditarUsuarioComponent implements OnInit {
         Swal.fire({
           text: 'Error al cargar usuario: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -48,8 +49,9 @@ export class EditarUsuarioComponent implements OnInit {
         Swal.fire({
           text: 'Usuario actualizado!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#4fa3f7',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -61,8 +63,9 @@ export class EditarUsuarioComponent implements OnInit {
         Swal.fire({
           text: 'Error al actualizar usuario: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
