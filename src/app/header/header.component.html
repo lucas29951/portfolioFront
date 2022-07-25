@@ -3,18 +3,52 @@
         <img src="https://i.gyazo.com/1010a883a784d04f571f7889f3200904.png" width="282" alt="perfil" />
         <div>Argentina Programa<span>#YoProgramo</span></div>
     </div>
-    <div class="menu">
+    <div class="menu" *ngIf="isLogged">
         <a href="#about">¿Quien soy?</a>
         <a href="#skills">Habilidades</a>
         <a href="#exps">Experiencia</a>
         <a href="#projects">Proyectos</a>
         <a href="#estudios">Estudios</a>
         <a href="#contacto">Contacto</a>
-        <button type="button" class="btn btn-outline-light" [routerLink]="['/log']" *ngIf="uLogged==''">
-            Sign in
-        </button> 
-        <button type="submit" class="btn btn-outline-light" [routerLink]="['/exit']" *ngIf="uLogged!=''">
-            Sign out
+        <button type="button" class="btn btn-outline-light" (click)="onLogOut()">
+            <i class="fa-solid fa-right-from-bracket"></i>
         </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form (ngSubmit)="onLogin()" novalidated #f="ngForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel"><i class="fa-solid fa-right-to-bracket"></i>
+                            Login</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="mb-3">
+                                <label for="nombreUsuario" class="col-form-label"><i class="fa-solid fa-user"></i>
+                                    Username:</label>
+                                <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" 
+                                [(ngModel)]="nombreUsuario">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="col-form-label"><i class="fa-solid fa-lock"></i>
+                                    Password:</label>
+                                <input type="password" class="form-control" id="password" name="password" 
+                                [(ngModel)]="password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-success btn-block" data-bs-dismiss="modal" [disabled]="!f.valid">Entrar</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoginService } from '../service/login.service';
-import Swal from 'sweetalert2';
+import { LoginUsuario } from '../models/login-usuario';
+import { AuthService } from '../service/auth.service';
+import { TokenService } from '../service/token.service';
 
 @Component({
   selector: 'app-header',
@@ -10,45 +11,46 @@ import Swal from 'sweetalert2';
 })
 export class HeaderComponent implements OnInit {
 
-  username: string = '';
+  isLogged = false;
+  nombreUsuario: string = '';
   password: string = '';
-  loginError: string = '';
-  uLogged: string = '';
+  loginUsuario: LoginUsuario = new LoginUsuario('','');
+  roles: string[]= [];
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private loginService: LoginService
+    private tokenService: TokenService,
+    private authService: AuthService
   ) { }
 
-  login() {
-    console.log(this.username);
-    console.log(this.password);
+  ngOnInit(): void {
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+    }else{
+      this.isLogged = false;
+    }
+  }
 
-    const user = {username: this.username, password: this.password};
+  onLogOut(): void {
+    this.tokenService.logOut();
+    window.location.reload();
+  }
 
-    this.loginService.login(user).subscribe(
+  onLogin(): void {
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario,this.password);
+    this.authService.login(this.loginUsuario).subscribe(
       data => {
-        console.log(data);
-        if(data==null) this.loginError = 'Error!';
-        else{
-          this.loginError = '';
-          this.loginService.setToken(data.idUsuario);
-          this.uLogged = this.loginService.getUserLogged();
-          this.router.navigate(['/']);
-        }
+        this.isLogged = true;
+        this.tokenService.setToken(data.token);
+        this.tokenService.setUserName(data.nombreUsuario);
+        this.tokenService.setAuthorities(data.authorities);
+        this.roles = data.authorities;
+        window.location.reload();
+      },
+      err => {
+        this.isLogged = false;
       }
     );
   }
-
-  ngOnInit(): void {
-    this.uLogged = this.loginService.getUserLogged();
-  }
-
-  salir():void {
-    this.loginService.deleteToken();
-    this.uLogged = '';
-    this.router.navigate(['/']);
-  }
-
 }
