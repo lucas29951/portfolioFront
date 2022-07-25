@@ -35,7 +35,7 @@
 </section>
 
 <section id="skills" *ngIf="isLogged">
-    <app-lista-tecnologia [tecnos]="persona.tecnologias"></app-lista-tecnologia>
+    <app-lista-tecnologia [tecnos]="persona.tecnologias" [permis]="isAdmin"></app-lista-tecnologia>
 </section>
 
 <section id="exps" *ngIf="isLogged">
@@ -43,7 +43,7 @@
 </section>
 
 <section id="projects" *ngIf="isLogged">
-    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos"></app-carousel-proyecto>
+    <app-carousel-proyecto [person]="persona" [pros]="persona.proyectos" [permis]="isAdmin"></app-carousel-proyecto>
 </section>
 
 <section id="estudios" *ngIf="isLogged">
