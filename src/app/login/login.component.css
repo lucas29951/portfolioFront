@@ -12,9 +12,14 @@
     padding: 15px;
 }
 
-.btn {
-    float: right;
-    margin: 10px 15px;
+.btn-primary {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-success {
+    margin: 5px;
+    margin-left: 30%;
 }
 
 .fa-lock {

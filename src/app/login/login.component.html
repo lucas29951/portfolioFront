@@ -1,31 +1,33 @@
-<app-header-empty></app-header-empty>
 
-<div class="container mt-5">
+<div class="container">
     <div class="card">
         <div class="card-header">
             <h5 class="card-title"><i class="fa-solid fa-right-to-bracket"></i> Login</h5>
         </div>
         <div class="card-body">
-            <div class="form-group py-5">
-                <div class="mb-3">
-                    <label for="username" class="col-form-label"><i class="fa-solid fa-user"></i>
+            <form (ngSubmit)="onLogin()" novalidated #f="ngForm">
+            <div class="form-group">
+                <div class="mb-1">
+                    <label for="nombreUsuario" class="col-form-label"><i class="fa-solid fa-user"></i>
                         Username:</label>
-                    <input type="text" class="form-control" id="username" [(ngModel)]="username">
+                    <input type="text" class="form-control" id="nombreUsuario" name="nombreUsuario" [(ngModel)]="nombreUsuario">
                 </div>
-                <div class="mb-3">
+                <div class="mb-2">
                     <label for="password" class="col-form-label"><i class="fa-solid fa-lock"></i>
                         Password:</label>
-                    <input type="password" class="form-control" id="password" [(ngModel)]="password">
+                    <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
                 </div>
-                {{loginError}}
             </div>
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" [disabled]="!f.valid">Iniciar sesion</button>
+            </div>
+            </form>
         </div>
         <div class="card-footer">
             <div class="form-group">
-                <button type="submit" class="btn btn-success" (click)="login()">
-                    Enter
+                <button type="submit" class="btn btn-success" routerLink="/register">
+                    Crear cuenta
                 </button>
-                <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancelar</button>
             </div>
         </div>
     </div>
