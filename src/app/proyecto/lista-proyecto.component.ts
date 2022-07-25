@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Proyecto } from '../models/proyecto';
-import { ProyectoService } from '../service/proyecto.service';
 import { PersonaService } from '../service/persona.service';
 import Swal from 'sweetalert2';
 
@@ -18,7 +17,6 @@ export class ListaProyectoComponent implements OnInit {
   existProy = false;
 
   constructor(
-    private proyectoService: ProyectoService,
     private router: Router,
     private persoService: PersonaService
     ) { }
@@ -74,35 +72,4 @@ export class ListaProyectoComponent implements OnInit {
     );
   }
 
-  borrar(id: number): void {
-    this.proyectoService.borrar(id).subscribe(
-      data => {
-        Swal.fire({
-          text: 'Proyecto eliminado!',
-          icon: 'success',
-          iconColor: '#ddd',
-          position: 'top-end',
-          background: '#00d80e',
-          color: '#ddd',
-          width: 300,
-          showConfirmButton: false,
-          timer: 1500
-        });
-        this.cargarProyectosDePersona();
-      },
-      err => {
-        Swal.fire({
-          text: 'Error al eliminar proyecto: ' + err.message,
-          icon: 'error',
-          iconColor: '#ddd',
-          position: 'top-end',
-          background: '#c43725',
-          color: '#ddd',
-          width: 300,
-          showConfirmButton: false,
-          timer: 1500
-        });
-      }
-    );
-  }
 }

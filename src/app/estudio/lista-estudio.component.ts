@@ -59,6 +59,7 @@ export class ListaEstudioComponent implements OnInit {
           timer: 1500
         });
         this.estus.splice(index,1);
+        window.location.reload();
       },
       err => {
         Swal.fire({

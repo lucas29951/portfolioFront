@@ -59,6 +59,7 @@ export class ListaExperienciaComponent implements OnInit {
           timer: 1500
         });
         this.exps.splice(index,1);
+        window.location.reload();
       },
       err => {
         Swal.fire({

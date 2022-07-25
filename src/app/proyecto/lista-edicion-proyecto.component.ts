@@ -30,6 +30,7 @@ export class ListaEdicionProyectoComponent implements OnInit {
     this.perso = this.persoService.getPersonStay();
     this.indice = 0;
     this.cargarProyectosDePersona();
+    this.existenProyectos();
   }
 
   existenProyectos(): void {
@@ -88,6 +89,7 @@ export class ListaEdicionProyectoComponent implements OnInit {
           timer: 1500
         });
         this.proyectos.splice(index,1);
+        window.location.reload();
       },
       err => {
         Swal.fire({

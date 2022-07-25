@@ -44,7 +44,7 @@ export class RegistroComponent implements OnInit {
           text: 'Cuenta creada exitosamente!',
           icon: 'success',
           iconColor: '#ddd',
-          position: 'top-end',
+          position: 'top',
           background: '#45cd63',
           color: '#ddd',
           width: 300,

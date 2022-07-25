@@ -60,6 +60,7 @@ export class ListaTecnologiaComponent implements OnInit {
           timer: 1500
         });
         this.tecnos.splice(index,1);
+        window.location.reload();
       },
       err => {
         Swal.fire({
