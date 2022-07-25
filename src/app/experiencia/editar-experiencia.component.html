@@ -45,7 +45,8 @@
             </div>
             <div class="col-md-3">
                 <h5><i class="fa-solid fa-image"></i> Vista Previa</h5>
-                <img src="{{experiencia.logo_empresa}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+                <img *ngIf="experiencia.logo_empresa!=''" src="{{experiencia.logo_empresa}}" class="img-fluid rounded-start" alt="vista previa foto" width="200">
+                <img *ngIf="experiencia.logo_empresa==''" src="https://i.gyazo.com/5b8bdd13b697c6b01cecd43ad8778582.png" class="img-fluid rounded-start" alt="vista previa foto" width="200">
             </div>
         </div>
     </div>

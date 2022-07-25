@@ -39,7 +39,7 @@
 </section>
 
 <section id="exps" *ngIf="isLogged">
-    <app-lista-experiencia [exps]="persona.experiencias"></app-lista-experiencia>
+    <app-lista-experiencia [exps]="persona.experiencias" [permis]="isAdmin"></app-lista-experiencia>
 </section>
 
 <section id="projects" *ngIf="isLogged">

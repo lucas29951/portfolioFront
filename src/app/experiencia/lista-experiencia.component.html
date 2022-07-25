@@ -3,18 +3,25 @@
         <div class="col-md-12">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
-                    <h2>Experiencia <button class="btn btn-success" [routerLink]="['/add-exp']" *ngIf="uLogged!=''"><i
+                    <h2>Experiencia <button class="btn btn-success" [routerLink]="['/add-exp']" *ngIf="permis"><i
                                 class="fa-solid fa-circle-plus"></i> Agregar</button></h2>
 
                     <div class="main-container">
-                        <table>
+                        <table *ngIf="!existExp">
+                            <thead>
+                                <tr>
+                                    <th>AUN NO HAY EXPERIENCIAS CARGADAS!</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <table *ngIf="existExp">
                             <thead>
                                 <tr>
                                     <th>LOGO</th>
                                     <th>PUESTO</th>
                                     <th>EMPRESA</th>
                                     <th>FECHA</th>
-                                    <th *ngIf="uLogged!=''">OPCIONES</th>
+                                    <th>OPCIONES</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -23,16 +30,16 @@
                                     <td>{{experiencia.nombre_puesto}}</td>
                                     <td>{{experiencia.lugar}}</td>
                                     <td>{{experiencia.fecha_inicio}}</td>
-                                    <td *ngIf="uLogged!=''">
+                                    <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                             data-bs-target="#detailExpModal" (click)="vistaDetalle(experiencia.idExp)">
                                             <i class="fa-solid fa-eye"></i>
                                             Ver
                                         </button>
-                                        <button class="btn btn-warning"
+                                        <button *ngIf="permis" class="btn btn-warning"
                                             routerLink="/modify-exp/{{experiencia.idExp}}"><i
                                                 class="fa-solid fa-pen-to-square"></i> Editar</button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                        <button type="button" *ngIf="permis" class="btn btn-danger" data-bs-toggle="modal"
                                             data-bs-target="#confirmExpModal" (click)="confirmar(experiencia.idExp,i)">
                                             <i class="fa-solid fa-trash-can"></i>
                                         </button>

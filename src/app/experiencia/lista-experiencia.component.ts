@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Experiencia } from '../models/experiencia';
 import { Persona } from '../models/persona';
 import { ExperienciaService } from '../service/experiencia.service';
-import { LoginService } from '../service/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -14,29 +13,34 @@ import Swal from 'sweetalert2';
 export class ListaExperienciaComponent implements OnInit {
 
   @Input() exps: Experiencia[] = [];
+  @Input() permis: boolean = false;
   experiencias: Experiencia[] = [];
   experiencia: Experiencia = new Experiencia(0,'','','','','','',new Persona(1,'','','','','',[],[],[],[],[]));
   indice: number = 0;
-  uLogged: string = '';
+  existExp = false;
 
   constructor(
     private experienciaService: ExperienciaService,
     private router: Router,
-    private loginService: LoginService
     ) { }
 
   ngOnInit(): void {
-    this.uLogged = this.loginService.getUserLogged();
     this.indice = 0;
+    this.existenExperiencias();
   }
   
-  cargarExperiencias(): void {
+  existenExperiencias(): void {
     this.experienciaService.listar().subscribe(
       data => {
         this.experiencias = data;
+        if(this.experiencias.length != 0){
+          this.existExp = true;
+        }else{
+          this.existExp = false;
+        }
       },
       err => {
-        console.log(err);
+        console.log(err.message)
       }
     );
   }
@@ -60,8 +64,9 @@ export class ListaExperienciaComponent implements OnInit {
         Swal.fire({
           text: 'Error al eliminar experiencia: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -77,7 +82,7 @@ vistaDetalle(id: number):void {
         this.experiencia = data;
       },
       err => {
-        alert('Error!' + err.message);
+        console.log('Error!' + err.message);
       }
     )
 }
@@ -87,22 +92,11 @@ confirmar(id: number,index: number):void {
     data => {
       this.experiencia = data;
       this.indice = index;
-      console.log(this.indice);
     },
     err => {
-      alert('Error!' + err.message);
+      console.log('Error!' + err.message);
     }
   )
 }
 
-salir():void {
-  this.loginService.deleteToken();
-  this.uLogged = '';
 }
-
-loggearse():void {
-  this.router.navigate(['/login']);
-}
-
-}
-

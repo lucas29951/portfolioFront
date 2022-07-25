@@ -21,7 +21,10 @@ export class NuevaExperienciaComponent implements OnInit {
   desc: string = '';
   pers: Persona = new Persona(1,'','','','','',[],[],[],[],[]);
 
-  constructor(private experienciaService: ExperienciaService, private router: Router) { }
+  constructor(
+    private experienciaService: ExperienciaService, 
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
@@ -34,8 +37,9 @@ export class NuevaExperienciaComponent implements OnInit {
         Swal.fire({
           text: 'Experiencia agregada!',
           icon: 'success',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#45cd63',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
@@ -47,8 +51,9 @@ export class NuevaExperienciaComponent implements OnInit {
         Swal.fire({
           text: 'Error al agregar experiencia: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
