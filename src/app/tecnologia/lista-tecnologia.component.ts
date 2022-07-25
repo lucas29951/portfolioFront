@@ -15,15 +15,15 @@ export class ListaTecnologiaComponent implements OnInit {
 
   @Input() tecnos: Tecnologia[] = [];
   tecnologias: Tecnologia[] = [];
-  tecnologia: Tecnologia = new Tecnologia(0,'',0,new Persona(1,'','','','','',[],[],[],[],[]));
+  tecnologia: Tecnologia = new Tecnologia(0, '', 0, new Persona(1, '', '', '', '', '', [], [], [], [], []));
   indice: number = 0;
   uLogged: string = '';
 
   constructor(
-    private tecnologiaService: TecnologiaService, 
+    private tecnologiaService: TecnologiaService,
     private router: Router,
     private loginService: LoginService
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.uLogged = this.loginService.getUserLogged();
@@ -44,7 +44,7 @@ export class ListaTecnologiaComponent implements OnInit {
   borrar(id: number, index: number): void {
     this.tecnologiaService.borrar(id).subscribe(
       data => {
-        Swal.fire({
+        /* Swal.fire({
           text: 'Tecnologia eliminada!',
           icon: 'success',
           position: 'top-end',
@@ -53,8 +53,8 @@ export class ListaTecnologiaComponent implements OnInit {
           width: 300,
           showConfirmButton: false,
           timer: 1500
-        });
-        this.tecnos.splice(index,1);
+        }); */
+        this.tecnos.splice(index, 1);
       },
       err => {
         Swal.fire({
@@ -71,25 +71,63 @@ export class ListaTecnologiaComponent implements OnInit {
     );
   }
 
-  confirmar(id: number,index: number):void {
+  /*   confirmar(id: number,index: number):void {
+      this.tecnologiaService.buscar(id).subscribe(
+        data => {
+          this.tecnologia = data;
+          this.indice = index;
+          console.log(this.indice);
+        },
+        err => {
+          alert('Error!' + err.message);
+        }
+      )
+  } */
+
+  confirmar(id: number, index: number): void {
     this.tecnologiaService.buscar(id).subscribe(
       data => {
         this.tecnologia = data;
         this.indice = index;
-        console.log(this.indice);
+
+        Swal.fire({
+          title: 'Estas seguro?',
+          text: "No podras revertir esta accion!",
+          icon: 'question',
+          background: '#4a5e83',
+          color: '#ddd',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            Swal.fire({
+              text: 'Tecnologia eliminada!',
+              icon: 'success',
+              background: '#29d337',
+              color: '#ddd',
+              width: 300,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.borrar(this.tecnologia.idTec, this.indice);
+          }
+        });
       },
       err => {
         alert('Error!' + err.message);
       }
     )
-}
+  }
 
-  salir():void {
+  salir(): void {
     this.loginService.deleteToken();
     this.uLogged = '';
   }
 
-  loggearse():void {
+  loggearse(): void {
     this.router.navigate(['/login']);
   }
 

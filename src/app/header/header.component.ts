@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoginService } from '../service/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header',
@@ -49,4 +50,5 @@ export class HeaderComponent implements OnInit {
     this.uLogged = '';
     this.router.navigate(['/']);
   }
+
 }

@@ -22,8 +22,11 @@
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </td>
                                 <td *ngIf="uLogged!=''">
-                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                    <!-- <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                         data-bs-target="#confirmTecModal" (click)="confirmar(tecnologia.idTec,i)">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button> -->
+                                    <button type="button" class="btn btn-danger" (click)="confirmar(tecnologia.idTec,i)">
                                         <i class="fa-solid fa-trash-can"></i>
                                     </button>
                                 </td>
