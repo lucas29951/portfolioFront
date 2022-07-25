@@ -1,0 +1,25 @@
+
+
+.card {
+    margin: 0 auto;
+    width: 500px;
+    background-image: -webkit-gradient(linear,left top,right top,from(#4a5e83),to(#3c2446));
+    background-image: linear-gradient(90deg,#4a5e83,#3c2446);
+}
+
+.card-header {
+    color: #ddd;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.card-body i {
+    color: #2e3f5f;
+}
+
+.btn {
+    float: right;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
