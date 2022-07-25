@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Contacto } from '../models/contacto';
 import { ContactoService } from '../service/contacto.service';
-import { LoginService } from '../service/login.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,17 +11,15 @@ import Swal from 'sweetalert2';
 })
 export class ListaContactoComponent implements OnInit {
 
+  @Input() permis: boolean = false;
   contactos: Contacto[] = [];
-  uLogged: string = '';
 
   constructor(
     private contactoService: ContactoService,
-    private router: Router,
-    private loginService: LoginService
+    private router: Router
     ) { }
 
   ngOnInit(): void {
-    this.uLogged = this.loginService.getUserLogged();
     this.cargarContactos();
   }
 
@@ -32,7 +29,17 @@ export class ListaContactoComponent implements OnInit {
         this.contactos = data;
       },
       err => {
-        console.log(err);
+        Swal.fire({
+          text: 'Error al cargar contactos!',
+          icon: 'error',
+          iconColor: '#ddd',
+          position: 'top',
+          background: '#c43725',
+          color: '#ddd',
+          width: 400,
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
     );
   }
@@ -56,8 +63,9 @@ export class ListaContactoComponent implements OnInit {
         Swal.fire({
           text: 'Error al eliminar contacto: ' + err.message,
           icon: 'error',
+          iconColor: '#ddd',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#c43725',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,

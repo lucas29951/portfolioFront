@@ -1,0 +1,26 @@
+.container .card {
+    background: linear-gradient(90deg,#4a5e83,#3c2446);
+    width: 55%;
+    margin: 0 auto;
+}
+
+.col-md-3 {
+    padding: 15px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+h5, label {
+    color: #ddd;
+    margin-bottom: 5px;
+}
+
+.btn {
+    margin-right: 15px;
+}
+
+input {
+    width: 100%;
+}

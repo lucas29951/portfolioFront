@@ -50,5 +50,4 @@
     <app-lista-estudio [estus]="persona.estudios"></app-lista-estudio>
 </section>
 
-<app-footer [conts]="persona.contactos" *ngIf="isLogged"></app-footer>
-
+<app-footer [conts]="persona.contactos" [permis]="isAdmin" *ngIf="isLogged"></app-footer>

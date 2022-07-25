@@ -30,7 +30,7 @@ export class NuevoContactoComponent implements OnInit {
           text: 'Contacto agregado!',
           icon: 'success',
           position: 'top-end',
-          background: '#4a5e83',
+          background: '#45cd63',
           color: '#ddd',
           width: 300,
           showConfirmButton: false,
