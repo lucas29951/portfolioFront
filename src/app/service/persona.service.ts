@@ -9,7 +9,8 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class PersonaService {
 
-  personaURL = 'http://localhost:8080/api/person/';
+  personaURL = 'https://apportfolioback.herokuapp.com/api/person/';
+  //personaURL = 'http://localhost:8080/api/person/';
 
   constructor(
     private httpClient: HttpClient,
