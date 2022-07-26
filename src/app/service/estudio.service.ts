@@ -8,7 +8,7 @@ import { Estudio } from '../models/estudio';
 })
 export class EstudioService {
 
-  estudioURL = 'https://apportfolioback.herokuapp.com/api/study/';
+  estudioURL = 'http://localhost:8080/api/study/';
 
   constructor(private httpClient: HttpClient) { }
 

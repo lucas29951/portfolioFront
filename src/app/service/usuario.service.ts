@@ -8,7 +8,7 @@ import { Usuario } from '../models/usuario';
 })
 export class UsuarioService {
 
-  usuarioURL = 'https://apportfolioback.herokuapp.com/api/user/';
+  usuarioURL = 'http://localhost:8080/api/user/';
 
   constructor(private httpClient: HttpClient) { }
 

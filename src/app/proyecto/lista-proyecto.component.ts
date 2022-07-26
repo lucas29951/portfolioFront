@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Proyecto } from '../models/proyecto';
 import { PersonaService } from '../service/persona.service';
 import Swal from 'sweetalert2';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-lista-proyecto',
@@ -15,10 +16,12 @@ export class ListaProyectoComponent implements OnInit {
   proyectos: Proyecto[] = [];
   perso: string = '';
   existProy = false;
+  uLogged: string = '';
 
   constructor(
     private router: Router,
-    private persoService: PersonaService
+    private persoService: PersonaService,
+    private loginService: LoginService
     ) { }
 
   ngOnInit(): void {
@@ -28,6 +31,8 @@ export class ListaProyectoComponent implements OnInit {
   }
 
   volver():void {
+    this.loginService.deleteToken();
+    this.uLogged = '';
     this.router.navigate(['/']);
   }
 
@@ -50,8 +55,10 @@ export class ListaProyectoComponent implements OnInit {
   }
 
   cargarProyectosDePersona(): void {
+    console.log("perso: " + this.perso);
     Number(this.perso);
     const id = parseInt(this.perso);
+    console.log("ID: " + id);
     this.persoService.buscar(id).subscribe(
       data => {
         this.proyectos = data.proyectos;
@@ -65,8 +72,8 @@ export class ListaProyectoComponent implements OnInit {
           background: '#c43725',
           color: '#ddd',
           width: 300,
-          showConfirmButton: false,
-          timer: 1500
+          showConfirmButton: false
+          //timer: 1500
         });
       }
     );

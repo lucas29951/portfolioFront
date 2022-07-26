@@ -5,6 +5,7 @@ import { ProyectoService } from '../service/proyecto.service';
 import { PersonaService } from '../service/persona.service';
 import { Persona } from '../models/persona';
 import Swal from 'sweetalert2';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-lista-edicion-proyecto',
@@ -19,14 +20,17 @@ export class ListaEdicionProyectoComponent implements OnInit {
   indice: number = 0;
   perso: string = '';
   existProy = false;
+  uLogged: string = '';
 
   constructor(
     private proyectoService: ProyectoService,
     private router: Router,
-    private persoService: PersonaService
+    private persoService: PersonaService,
+    private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
+    this.uLogged = this.loginService.getUserLogged();
     this.perso = this.persoService.getPersonStay();
     this.indice = 0;
     this.cargarProyectosDePersona();
@@ -131,6 +135,8 @@ confirmar(id: number,index: number):void {
 }
 
 volver():void {
+  this.loginService.deleteToken();
+  this.uLogged = '';
   this.router.navigate(['/']);
 }
 
